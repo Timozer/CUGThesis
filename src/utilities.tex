@@ -1,0 +1,35 @@
+%!TEX TS-program = xelatex
+% vim: set fenc=utf-8
+
+% -*- coding: UTF-8; -*-
+%!TEX encoding = UTF-8 Unicode 
+
+\AtBeginDocument{%
+    \let\oldref\ref%
+    \renewcommand{\ref}[1]{\hskip0.25em\oldref{#1}\hskip0.25em}
+%\RenewDocumentCommand \ref { m }{\hskip0.25em\oldref{#1}\hskip0.25em}
+}
+\NewDocumentEnvironment{tfig}{m m}{%
+    \begin{figure}[htbp]
+        \centering 
+    }{%
+        \caption{#1}
+        \label{#2}
+    \end{figure}
+}
+
+% for poems 
+\NewDocumentEnvironment{poem}{m m}{%
+    \vskip.8ex
+    \begin{center}
+        \begin{minipage}{.65\textwidth}
+            \small \sffamily
+}{%
+        \rightline{------~#1《~#2~》}
+        \end{minipage}
+    \end{center}
+    \vskip.7ex
+}
+\NewDocumentCommand{\cugthesis}{}{{\rmfamily \scshape \small CugThesis}}
+\NewDocumentCommand{\ttword}{m}{{\small \ttfamily #1}}
+\endinput 

@@ -1,0 +1,148 @@
+\documentclass[masterpronofulltime]{cugthesis}
+
+\usepackage{pdfpages}
+\title{中国地质大学研究生学位论文\LaTeXe{}模板}
+\entitle{CUGThesis \LaTeXe{} Template}
+\studentid{1201711347}
+\major{计算机科学与技术}
+\enmajor{Computer Science}
+\teacher{蔡之华}
+\supervisor{Zhihua Cai}
+\author{王震宇}
+\enauthor{Timozer}
+\educatingunit{计算机学院}
+\date{\cugdate{2018}{3}}
+\begin{document}
+
+\maketitle
+\makeentitle
+\makeextrapages{1}
+\makeextrapages{2}
+\makeextrapages{3}
+\makeauthorcv
+
+\frontmatter
+\cugabstract{
+    本文是中国地质大学（武汉）研究生学位论文 \LaTeXe{} 模板的说明文档. 本文主要介绍了该模板的写作背景,
+    写作目的, 使用方法, 以及稍微介绍一下此模板是如何写的, 当然也有鄙人写的一些小工具.
+    本文也可以作为中国地质大学（武汉）
+    研究生学位论文 \LaTeXe{} 模板的示例文件,
+    因为本文内容基本上遵照了《中国地质大学（武汉）研究生学位论文写作规范》（2015年版）.
+}
+\keywords{中国地质大学; 学位论文;  \LaTeX{} 模板; 研究生}
+\cugenabstract{This article is a description of the \LaTeXe{} template for a graduate dissertation of the 
+                China University of Geosciences (Wuhan). This article mainly introduces
+                The template's writing background, writing purpose, usages, and a little introduction about 
+                how this template is written, of course there is also some useful utilities written by myself.
+                This article can also be used as a \LaTeXe{} model for graduate students of the China University of Geosciences (Wuhan).
+                the sample files for the board, because the content of this paper basically complies 
+                with the ``Chinese University of Geosciences (Wuhan) Graduate Dissertation Writing Regulations
+                Van ''(Version 2015).}
+\enkeywords{CUGThesis; \LaTeXe{} Template}
+\makeabstract 
+\makeenabstract
+
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+
+\mainmatter
+
+\chapter{绪论}
+
+\section{背景}
+\label{sec:bei_jing_}
+
+\section{目的}
+\label{sec:mu_di_}
+
+
+
+\section{问题反馈}
+\label{sec:wen_ti_fan_kui_}
+
+
+\chapter{使用方法}
+
+\section{系统要求}
+\label{sec:xi_tong_yao_qiu_}
+
+\section{下载安装}
+\label{sec:xia_zai_an_zhuang_}
+
+
+
+\chapter{Utilities}
+
+\chapter{实现}
+
+\chapter{更新日志}
+
+\section{Version 0.1}
+\label{sec:version_0_1}
+
+2018年 3月14日 星期三 14时05分07秒 CST
+
+本模板从12日着手准备开发, 到现在已经将论文所要求的页面已经基本实现了, 除了作者简介页面和参考文献.
+虽然页面基本实现了, 而且一些格式也设置了, 但仍然没有达到论文规范的要求, 因此在接下来的版本中我
+会逐渐将没有实现的实现了, 把格式都调好了.
+
+TODO list:
+\begin{itemize}
+    \item 题名页, 原创声明, 导师承诺书, 授权书, 摘要这些页面继续调整一下, 让人看起来更舒服一些;
+    \item 目录格式;
+    \item 关于论文中字体格式的调整;
+    \item 模板使用字体的选择;
+    \item 小工具的编写;
+    \item 还没想好\dots
+\end{itemize}
+
+
+\backmatter{}
+\chapter{致谢}
+
+% 这里是参考文献
+%\tbib{bibFileName}
+
+\appendix
+\chapter{文档示例}
+\label{chapter:egdoc}
+
+这里我将示例文档的内容插入进来, 以供大家查看.
+
+\begin{table}[htpb]
+    \centering
+    \caption{联系方式}
+    \label{tab:contact}
+    \begin{tabular}{>{\sffamily}l>{\ttfamily\small}l}
+        \toprule
+        E-mail & zhenyuwang94@gmail.com \\
+        QQ & 878592748 \\
+        Github & https://github.com/Timozer \\
+        \bottomrule 
+    \end{tabular}
+\end{table}
+
+不管用何种方式联系我, 请注明 ``CUGTeX模板问题''.
+
+\chapter{LICENSE}
+\cugthesis 模板采用的是 GPLv3 协议, 下面给出简短说明, 详情请参看目录下的 LICENSE 文件.
+
+Copyright © 2018 Timozer <zhenyuwang94@gmail.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%{\small \sffamily \input{LICENSE}}
+\end{document}

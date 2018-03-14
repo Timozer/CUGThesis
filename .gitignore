@@ -1,0 +1,11 @@
+.DS_Store
+*~
+*.aux
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+fonts
+TODO.txt
+timozer*

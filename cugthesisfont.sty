@@ -1,0 +1,73 @@
+
+% !TEX TS-program xelatex
+% !TEX encoding = UTF-8 Unicode
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  FileName: cugthesisfont.sty
+%%  Author:   Timozer
+%%  E-mail:   zhenyuwang94@gmail.com
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{cugthesisfont}[2018/02/03 v0.6 Provide Chinese Environment]
+
+\RequirePackage{fontspec}
+\RequirePackage{xeCJK}
+
+%------------- Fonts Settings -------------
+%\defaultfontfeatures{Path = fonts/cn/, Mapping = tex-text}
+%\defaultfontfeatures{Mapping = tex-text}
+
+%------------- Fonts Define ---------------
+% if you want to use more fonts, please do it like blow
+%\newCJKfontfamily[family]\cmd{font.file}
+%\newCJKfontfamily[SmallCaps]\SCF{SmallCaps.otf}
+
+%%------------- Chinese Fonts  -------------
+%\setCJKmainfont[ 
+        %BoldFont = Hiragino Sans GB W6, ItalicFont = STKaiti
+    %]{FZShuSong-Z01S}
+%\setCJKsansfont[
+    %BoldFont = Hiragino Sans GB, 
+    %]{Hiragino Sans GB}
+%\setCJKmonofont{FZShuSong-Z01S}
+
+%%%------------- English Fonts  -------------
+\setmainfont[
+    ItalicFont = {Times New Roman Italic},
+    BoldFont = {Times New Roman Bold},
+    %SmallCapsFont={Fontin SmallCaps},
+    SmallCapsFont = {Bodoni 72 Smallcaps},
+    %SmallCapsFeatures={Letters=SmallCaps},
+]{Times New Roman}
+\setsansfont{Optima}
+\setmonofont{Monaco}
+
+\def\cug@define@fontsize#1#2{%
+    \expandafter\newcommand\csname #1\endcsname[1][\baselinestretch]{%
+        \fontsize{#2}{##1\dimexpr #2}\selectfont}}
+
+\cug@define@fontsize{cug@chuhao}{42bp}
+\cug@define@fontsize{cug@xiaochu}{36bp}
+%\cug@define@fontsize{cug@yihao}{26bp}
+\cug@define@fontsize{cug@xiaoyi}{24bp}
+%\cug@define@fontsize{cug@erhao}{22bp}
+%\cug@define@fontsize{cug@xiaoer}{18bp}
+\cug@define@fontsize{cug@sanhao}{16bp}
+%\cug@define@fontsize{cug@xiaosan}{15bp}
+\cug@define@fontsize{cug@sihao}{14bp}
+%\cug@define@fontsize{cug@xiaosi}{12bp}
+%\cug@define@fontsize{cug@wuhao}{10.5bp}
+%\cug@define@fontsize{cug@xiaowu}{9bp}
+\newcommand{\cug@yihao}{\Huge}
+\newcommand{\cug@erhao}{\huge}
+\newcommand{\cug@xiaoer}{\LARGE}
+\newcommand{\cug@xiaosan}{\Large}
+\newcommand{\cug@xiaosi}{\large}
+\newcommand{\cug@wuhao}{\normalsize}
+\newcommand{\cug@xiaowu}{\small}
+%\setlength{\parindent}{2em}
+\endinput
