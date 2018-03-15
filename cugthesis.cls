@@ -30,7 +30,7 @@
     amstex]{ctexbook}
 
 %%%%%%%%%%%%%%%%%%%%%%% Load Packages %%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{xifthen, xparse, xstring, fancyhdr}
+\RequirePackage{xifthen, xparse, xstring, fancyhdr, etoolbox}
 
 % ams-tex, 用来排出漂亮的公式
 \RequirePackage{amstext, amsmath, amssymb, amsfonts}
@@ -42,7 +42,7 @@
 % 表格控制
 \RequirePackage{array, longtable, makecell, tabu, booktabs}
 
-\RequirePackage{enumitem}
+\RequirePackage{enumitem} % 修改列表样式
 
 %------------------------------------------
 \RequirePackage{cugthesisfont}
@@ -400,7 +400,6 @@
 % \cpageref{label, label, ...}
 % \cpagerefrange{label}{label}
 % maybe i can use cleveref package to solve the problem
-\input{./src/utilities.tex}
 % \rmfamily, \sffamily, \ttfamily, \upshape, \itshape, \slshape, \scshape, \bfseries, \mdseries, \lfseries
 % tex 中定义命令的语句 \def, \gdef, \edef, \xdef, \gdef -> \global\def
 % \def<命令模板>{定义}
@@ -435,7 +434,24 @@
     \addcontentsline{toc}{chapter}{表 \quad 格}
     \clearpage 
     \mainmatter 
-
 }
+
+%%%%%%%%%%%%%%%%%%% 定制列表环境, 让它们看起来更紧凑一些 %%%%%%%%%%%%%%%%%%%%
+\setlist[itemize]{parsep=0pt, itemsep=0pt, topsep=0pt, rightmargin=2em, partopsep=2pt}
+\setlist[enumerate]{parsep=0pt, itemsep=0pt, topsep=0pt, rightmargin=2em, partopsep=2pt}
+\setlist[description]{parsep=0pt, itemsep=0pt, topsep=0pt, rightmargin=2em, partopsep=2pt}
+\AtBeginEnvironment{itemize}{\small}
+\AtBeginEnvironment{enumerate}{\small}
+\AtBeginEnvironment{description}{\small}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% The format of float's caption %%%%%%%%%%%%%%%%%%%%
+\RequirePackage{caption}
+\captionsetup{labelsep=quad, font={small, rm, singlespacing}, skip=10pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\oldequation=\theequation
+\renewcommand{\theequation}{{\cug@wuhao\oldequation}}
+
+% Logo
+\NewDocumentCommand{\cugthesis}{}{{\rmfamily \scshape CugThesis}}
 %--------------- Source Code ---------------
 \endinput 
