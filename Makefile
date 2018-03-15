@@ -9,12 +9,13 @@ demo.pdf: demo.tex *.sty *.cls
 	$(TEX) -shell-escape $<
 	#$(BIBTEX) demo.aux
 	#$(TEX) -shell-escape $<
-	#$(TEX) -shell-escape $<
+	$(TEX) -shell-escape $<
 	$(OPEN) $@
 
 
 .PHONY: clean 
 
 clean:
-	rm -f *~ *.aux *.log *.out *.toc *.bbl *.blg *.lof *.lot
+	rm -f *~ *.aux *.log *.out *.toc *.bbl *.blg *.lof *.lot 
+	#rm -f *.pdf
 	rm -rf _minted-cache

@@ -1,4 +1,4 @@
-\documentclass[masterpronofulltime]{cugthesis}
+\documentclass{cugthesis}
 
 \usepackage{pdfpages}
 \title{中国地质大学研究生学位论文\LaTeXe{}模板}
@@ -12,16 +12,15 @@
 \enauthor{Timozer}
 \educatingunit{计算机学院}
 \date{\cugdate{2018}{3}}
+
+%\newcommand{\url}[1]{\texttt{\small #1}}
 \begin{document}
 
-\maketitle
-\makeentitle
-\makeextrapages{1}
-\makeextrapages{2}
-\makeextrapages{3}
-\makeauthorcv
+%\maketitle
+%\makeextrapages
+%\makeauthorcv
 
-\frontmatter
+%\frontmatter
 \cugabstract{
     本文是中国地质大学（武汉）研究生学位论文 \LaTeXe{} 模板的说明文档. 本文主要介绍了该模板的写作背景,
     写作目的, 使用方法, 以及稍微介绍一下此模板是如何写的, 当然也有鄙人写的一些小工具.
@@ -39,28 +38,121 @@
                 with the ``Chinese University of Geosciences (Wuhan) Graduate Dissertation Writing Regulations
                 Van ''(Version 2015).}
 \enkeywords{CUGThesis; \LaTeXe{} Template}
-\makeabstract 
-\makeenabstract
+%\makeabstract 
 
-\tableofcontents
-\listoffigures
-\listoftables
-\clearpage
+%\tableofcontents
+%\listoffigures
+%\listoftables
 
-\mainmatter
+%\mainmatter
+\makefrontpages 
 
 \chapter{绪论}
 
 \section{背景}
 \label{sec:bei_jing_}
+    请允许我先简单介绍一下 \TeX{}, \LaTeX{}, CTeX, Texlive, 
+    因为可能很多人都没有听过这个软件, 自然就谈不上使用它了.
+\subsection{什么是 \TeX{}?}
+\label{sec:sub_what_is_tex_}
+    \TeX{} 是由Donald Knuth 编写的一个基于低级编程语言的电子排版系统, 它能够对文章
+    进行十分精美的排版.
+
+    Donald Knuth 教授公开了他的全部源程序. \TeX{} 系统目前已经在数百种计算机系统上得到了
+    实现, 也就是说不论你是使用 Windows 系统, Linux 系统, 还是 Mac OSX 系统, 你都可以使用
+    \TeX{} 系统来对你写的文章进行排版. 
+
+    \TeX{} 的强大之处在于其能够对文档的排版进行非常精细的控制, 这可以使你能够对你文章的每一处
+    细节进行调整.
+
+    \TeX{} 系统具有很好的稳定性, 目前可以说几乎没什么 BUG. 如果你在使用该系统的过程中真的发现了
+    BUG, 你可以联系 Donald Knuth 教授提交反馈. 据说在报告 BUG 时你会获得一定的现金奖励.
+\subsection{什么是 \LaTeX{}?}
+\label{sec:sub_what_is_latex_}
+    \LaTeX{} 是由 Leslie Lamport 开发的当今世界上最流行和使用最广泛的 \TeX{} 宏集. 它构筑在 PlainTeX
+    的基础上, 并加进了很多的功能以使使用者可以更为方便的使用 \TeX{} 的功能. 因此, 即使使用者并不是
+    很了解 \TeX{}, 也可以在短时间内生成高质量的文档. 对于复杂的数学公式, \LaTeX{} 的表现非常出色.
+
+\subsection{\LaTeX{} 的优缺点}
+\label{sec:sub_latex_advantages_disabvantages_}
+缺点: 
+\begin{itemize}
+    \item 一般来说是不能在输入文章的同时看到最终的输出效果, 但是将文章用 \LaTeX{}编译之后, 可以在屏幕上预览最终的输出效果的; 
+    \item 尽管在预先定义好的版面中可以调节一些参数, 设计全新的版面还是很困难的, 需要耗费大量的时间（这正是我要做的, 你不用担心）; 
+    \item 需要掌握一些\LaTeX{}的排版命令（很少一部分）; 
+    \item \LaTeX{}不适合于排版非结构化的、无序的文档; 
+\end{itemize}
+
+优点:
+\begin{itemize}
+    \item 提供专业级的排版设计, 使你的文档看起来如同印刷好的一样; 
+    \item 可以更方便地排版数学公式; 
+    \item 用户仅仅需要掌握少数容易理解的, 用来说明文档逻辑结构的命令, 而无需对实际的页面设计做胡乱的修补; 
+    \item 可以很容易地生成脚注、索引、目录和参考文献等复杂的结构; 
+    \item 有大量免费的可添加宏包, 协助你完成许多基本的LaTeX未直接支持的排版任务; 例如, 支持在文档中插入PostScript图形的宏包和排版符合各类标准的参考文献的宏包等; 
+    \item \TeX{}作 \LaTeX{}的格式化引擎, 是免费软件并且具有极高的可移植性, 因此它几乎可以在任何硬件平台上运行; 
+\end{itemize}
+\subsection{我为什么开发这个模板?}
+\subsubsection{原因一}
+    在\ref{sec:sub_what_is_tex_}节中我们提到了 \TeX{} 可以对文档进行非常精细的控制, 但由此也造成了
+    一个问题, 使用难度非常大, 导致了耗时耗力, 最后的效果还可能不是你想要的. 
+
+    基于上面的问题, \LaTeX{} 对 \TeX{} 进行了一个封装, 使得其变得相对来说简单易用了一些. 但是对于
+    从来没有使用过 \TeX{} 的人来说, 尤其是那些没有编程经验的人, 它还是非常的不友好. 
+
+    因此, 我想在这里继续对其进行一个封装, 做成一个中国地质大学（武汉）研究生学位论文写作模板, 使得
+    地大的研究生在写作过程中更容易一些, 把主要精力用在论文内容上, 而不是论文的排版格式. 
+
+\subsubsection{原因二}
+    目前网上是有一份中国地质大学（武汉）研究生学位论文 \LaTeX{} 模板\footnote{\url{https://github.com/xujinlai/CUGThesis}}的, 
+    我看了一下, 作者是信息工程学院罗忠文教授的学生赵钱孙\footnote{我不知道这个是他的真名还是个
+    文档内的示例名字, 如有所知者烦请告知, 我会更正本文档中的内容, 我的联系方式在表\ref{tab:contact}中可以查到. }
+    于 2015 年 4 月份写的, 之后再没有再更新过. 可惜的是, 地大非常地不给面子, 于同年 12 月份修改了毕业论文的写作规范, 因此
+    他的模板中的内容过时了, 不再适合使用了.
+    
+\subsubsection{原因三}
+    在说原因三之前, 我首先要申明一下, 本文不是一个铁杆儿粉在专门提倡使用 \TeX{}, 也不是一个 Anti MSer 在
+    大力宣传 Anti MS. 
+
+    现在基本上每个人都在用 MS Word 做文字的排版, 尤其是高校学生, 经常要使用 MS Word 来写课程报告, 在毕业时候
+    甚至还需要用它来做毕业设计论文的排版. 
+
+    但是, 我想问一句, 你使用了这么多年 Word, 你真的会用吗? 你真的会用吗? 你真的会用吗? 
+
+    仔细地思考一下我的问题. 我说的会用不包括 VisualBasicScript 编程, 这个毕竟是懂编程的人才会去研究的.
+
+    返回头来看看你曾经写过的课程报告, 你觉得怎么样? 是版式排的非常漂亮, 还是烂的像一坨屎, 根本不能给人看?
+
+    你自己满意吗?
+
+    曾见过我的同学们是如何对课程报告进行排版的, 就是一个一个的字符调格式, 自动化工具不会用, 样式不会用,
+    最后调了半天也没调出什么效果来, 仅仅是让人能区分出章节标题和正文了.
+
+    我在这里说这个问题, 是想说, 我不是讨厌 Word, 而是讨厌从不知样式为何物"的 Word 用户, 这些人排版非常糟糕,
+    ``不堪入目''.
+
+    还有一个就是用 Word 排版非常低效, 即使你懂得如何使用 Word, 我是说懂得使用自动化工具和样式.
+
+    总之一句话, 使用 \TeX{} 可以在极短的时间内做出最好的排版效果, 省时省力.
 
 \section{目的}
 \label{sec:mu_di_}
+    在\ref{sec:sub_latex_advantages_disabvantages_}节中我们提到了 \LaTeX{} 设计全新的版面是困难的, 我想这点
+    不用你操心, 我这不正是在给你做这个论文写作模板嘛, 不需要你自己设计.
 
-
+    还有就是需要掌握一些 \LaTeX{} 排版命令, 关于这一点, 是系统本身带来的问题. 而我的目的呢, 就是尽量简化这些
+    命令, 简化你的写作过程, 使你能够在使用相当少的命令的情况下得到相当漂亮的排版效果.
 
 \section{问题反馈}
 \label{sec:wen_ti_fan_kui_}
+    本模板完全是由我一个人开发, 因此, 在写作过程中难免会出现各种错误, 或者是有些细节地方没有考虑到.
+
+    因此, 如果你在使用模板的过程中如果有疑问, 遇到困难, 可以询问我, 我的联系方式可以在表\ref{tab:contact}中查到.
+    
+    如果你在使用过程中遇到了 BUG, 影响到了你的使用体验, 我在这里先向你说一句抱歉.
+    然后诚恳地希望你可以给我一些反馈, 以便让该模板更好用. 当然, 如果您有一些建议, ideas 等, 也可以给我反馈. 
+    请将反馈提交到
+    \url{https://github.com/Timozer/CUGThesis/issues}中.
 
 
 \chapter{使用方法}
@@ -98,6 +190,30 @@ TODO list:
     \item 还没想好\dots
 \end{itemize}
 
+2018年 3月15日 星期四 11时18分01秒 CST
+
+修正字号, 因为正文默认使用小四字体, 即在 \CTeX{} 中设置为 12pt, 所以关于 Huge, huge, LARGE 等这些命令
+所对应的字体变大了. 而之前使用的定义有误, 所以重新定义字号大小.
+
+设置目录的格式完成. 关于目录的格式问题: 规范里要求一级节标题和二级节标题左缩进一个汉字和两个汉字的距离,
+但是章标题和节标题的字号大小却不一样, 所以排版出的效果不是很好. 因此, 我擅自将一级节标题的缩进改为 1.2
+个汉字, 二级节标题改为 2.5 个汉字. 
+
+TODO list:
+\begin{itemize}
+    \item 模板使用字体的选择;
+    \item 小工具的编写;
+    \item 说明文档的完善;
+    \item 简介页面的制作;
+    \item 参考文献页面的制作;
+    \item 还没想好\dots
+\end{itemize}
+
+OK, 目前这个版本实现的功能就是这么多, 其他功能下个版本再添加. 
+
+\section{Version 0.2}
+\label{sec:version_0_2}
+
 
 \backmatter{}
 \chapter{致谢}
@@ -119,12 +235,12 @@ TODO list:
         \toprule
         E-mail & zhenyuwang94@gmail.com \\
         QQ & 878592748 \\
-        Github & https://github.com/Timozer \\
+        Github & \url{https://github.com/Timozer} \\
         \bottomrule 
     \end{tabular}
 \end{table}
 
-不管用何种方式联系我, 请注明 ``CUGTeX模板问题''.
+不管用何种方式联系我, 请注明 ``CUGThesis 模板问题''.
 
 \chapter{LICENSE}
 \cugthesis 模板采用的是 GPLv3 协议, 下面给出简短说明, 详情请参看目录下的 LICENSE 文件.
@@ -142,7 +258,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program.  If not, see <\url{http://www.gnu.org/licenses}/>.
 
-%{\small \sffamily \input{LICENSE}}
 \end{document}
