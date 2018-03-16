@@ -1,35 +1,25 @@
 \documentclass{cugthesis}
 
-\usepackage{pdfpages}
-\title{中国地质大学研究生学位论文\LaTeXe{}模板}
-\entitle{CUGThesis \LaTeXe{} Template}
-\studentid{1201711347}
-\major{计算机科学与技术}
-\enmajor{Computer Science}
-\teacher{蔡之华}
-\supervisor{Zhihua Cai}
-\author{王震宇}
-\enauthor{Timozer}
-\educatingunit{计算机学院}
-\date{\cugdate{2018}{3}}
+\usepackage{ttools}
+\usepackage{tcode}
 
-%\newcommand{\url}[1]{\texttt{\small #1}}
+\cugthesistitle{中国地质大学研究生学位论文 \LaTeXe{} 模板}{\cugthesis\ \LaTeXe{} 模板}
+\studentid{1201711347}
+\cugthesismajor{计算机科学与技术}{Computer Science}
+\cugthesisteacher{蔡之华}{Zhihua Cai}
+\cugthesisauthor{王震宇}{Zhenyu Wang}
+\educatingunit{计算机学院}
+\cugthesisdate{2018}{3}
+
 \begin{document}
 
-%\maketitle
-%\makeextrapages
-%\makeauthorcv
-
-%\frontmatter
 \cugabstract{
     本文是中国地质大学（武汉）研究生学位论文 \LaTeXe{} 模板的说明文档. 本文主要介绍了该模板的写作背景,
     写作目的, 使用方法, 以及稍微介绍一下此模板是如何写的, 当然也有鄙人写的一些小工具.
     本文也可以作为中国地质大学（武汉）
     研究生学位论文 \LaTeXe{} 模板的示例文件,
     因为本文内容基本上遵照了《中国地质大学（武汉）研究生学位论文写作规范》（2015年版）.
-}
-\keywords{中国地质大学; 学位论文;  \LaTeX{} 模板; 研究生}
-\cugenabstract{This article is a description of the \LaTeXe{} template for a graduate dissertation of the 
+}{This article is a description of the \LaTeXe{} template for a graduate dissertation of the 
                 China University of Geosciences (Wuhan). This article mainly introduces
                 The template's writing background, writing purpose, usages, and a little introduction about 
                 how this template is written, of course there is also some useful utilities written by myself.
@@ -37,14 +27,19 @@
                 the sample files for the board, because the content of this paper basically complies 
                 with the ``Chinese University of Geosciences (Wuhan) Graduate Dissertation Writing Regulations
                 Van ''(Version 2015).}
-\enkeywords{CUGThesis; \LaTeXe{} Template}
-%\makeabstract 
 
-%\tableofcontents
-%\listoffigures
-%\listoftables
+\cugkeywords{中国地质大学; 学位论文;  \LaTeX{} 模板; 研究生}{CUGThesis; \LaTeXe{} Template}
 
-%\mainmatter
+%\cugenabstract{This article is a description of the \LaTeXe{} template for a graduate dissertation of the 
+                %China University of Geosciences (Wuhan). This article mainly introduces
+                %The template's writing background, writing purpose, usages, and a little introduction about 
+                %how this template is written, of course there is also some useful utilities written by myself.
+                %This article can also be used as a \LaTeXe{} model for graduate students of the China University of Geosciences (Wuhan).
+                %the sample files for the board, because the content of this paper basically complies 
+                %with the ``Chinese University of Geosciences (Wuhan) Graduate Dissertation Writing Regulations
+                %Van ''(Version 2015).}
+%\enkeywords{CUGThesis; \LaTeXe{} Template}
+
 \makefrontpages 
 
 \chapter{绪论}
@@ -159,11 +154,239 @@
 
 \section{系统要求}
 \label{sec:xi_tong_yao_qiu_}
+本模板是基于 \CTeX{} 宏集中的 ctexbook 文档类进行定制的. 所以如果要使用该模板, 你必须
+安装有 \CTeX{} 宏集. 我只知道 Texlive 完全安装包含了该宏集.
 
+除了需要 ctexbook 文档类, 本模板还自动加载了一些必要和不必要的宏包, 如表\ref{tab:packagesautoload}
+中所示. 因此你的电脑还必须安装有这些宏包, Texlive 完全安装会自动安装这些宏包.
+\begin{ttab}{\cugthesis{} 自动加载的宏包}{tab:packagesautoload}
+    \begin{tabular}{>{\bfseries}cl}
+        \toprule 
+        类别 & 宏包 \\
+        \midrule
+        模板开发类 & xifthen, xparse, etoolbox  \\
+        字体类 & xeCJK, fontsec \\
+        数学类 & amstext, amsmath, amssymb, amsfonts, mathrsfs, bm, mathtools \\
+        插图类 & graphicx, subcaption \\
+        表格类 & array, longtable, makecell, tabu, booktabs \\
+        列表类 & enumitem \\
+        模板  & cugthesisfont \\
+        页面布局 & geometry \\
+        目录样式 & tocloft \\
+        超链接 & hyperref, url \\
+        浮动环境标题 & caption \\
+        参考文献 & natbib \\
+        \bottomrule
+    \end{tabular}
+\end{ttab}
+
+本模板目前测试可以正常进行编译的系统环境如表\ref{tab:systems}所示.
+\begin{ttab}{系统环境}{tab:systems}
+    \begin{tabular}{cl}
+        \toprule
+        系统类别 & 编译环境 \\
+        \midrule 
+        Mac OSX & Texlive2017:xelatex \\
+        \bottomrule  
+    \end{tabular}
+\end{ttab}
 \section{下载安装}
 \label{sec:xia_zai_an_zhuang_}
 
+\subsection{模板下载}
+\label{sub:mo_ban_xia_zai_}
+本模板是托管在 Github 上的一个项目, 项目地址: \url{https://github.com/Timozer/CUGThesis}. 你可以
+在该网站上下载所有文件.
 
+下载完整地址:
+
+\url{https://github.com/Timozer/CUGThesis/archive/master.zip}
+
+如果你使用 Linux 或者是 Mac OSX 系统, 你可以使用图形界面下载工具来下载, 也可以在终端中使用 wget 或者是 git 来
+将它下载到本地. 如下:
+
+\begin{minted}{sh}
+wget https://github.com/Timozer/CUGThesis/archive/master.zip
+# 或者是
+git clone https://github.com/Timozer/CUGThesis.git 
+\end{minted}
+
+下载完成后请将压缩包解压, 然后清点一下文件, 看是否残缺, 本模板主要文件如表\ref{tab:templatefiles}所示.
+\begin{ttab}{模板主要文件}{tab:templatefiles}
+    \begin{tabular}{lll}
+        \toprule
+        文件名 & 相对路径 & 说明 \\
+        \midrule
+        cugthesis.cls & ./ & 模板文档类主要文件 \\
+        cugthesisfont.sty & ./ & 模板字体设置 \\
+        authorcv.tex & ./ & 作者简介 \\
+        gbt77140-2005.bst & ./ & 参考文献样式 \\
+        demo.tex & ./ & 本说明文档的 tex 源码文件 \\
+        demo.pdf & ./ & 本说明文档 \\
+        example.tex & ./ & 示例源码文件 \\
+        example.pdf & ./ & 示例文档 \\
+        tex.bib & ./ & 本文档引用的参考文献数据库 \\
+        ttools.sty & ./ & 小工具宏包 \\
+        tcode.sty & ./ & 代码环境设置 \\
+        LICENSE & ./ & 协议文件 \\
+        README.md & ./ & readme \\
+        Makefile & ./ & make 自动化工具所需文件 \\
+        \bottomrule 
+    \end{tabular}
+\end{ttab}
+
+\subsection{\LaTeX{}系统安装使用}
+\label{sub:xi_tong_an_zhuang_shi_yong_}
+
+\section{模板基本使用}
+\label{sec:mo_ban_ji_ben_shi_yong_}
+要使用本模板, 您首先得具备基本的 \LaTeX{} 知识, 本模板的存在只是尽可能让你在
+具备很少的知识的情况下做出精美的排版. 如果您刚刚接触 \LaTeX{}, 建议您先学习一下
+相关的知识. 
+
+什么? 您说啥? 没时间?
+
+OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short Introduction to 
+\LaTeXe{} \cite{oetiker_not_2018} 这篇文档, 大概占用您 139 分钟.
+读过这篇文档, 您基本已经会使用 \LaTeX{} 系统了. 接下来您就可以正常使用本模板了.
+当然, 如果您在使用模板过程中对 \LaTeX{} 产生了兴趣, 想进一步了解, 您还可以读
+《 \LaTeX{} 入门 》\cite{_latex_2013} 这本书.
+
+下面步入正题.
+
+本模板的文档类为 cugthesis, 为了方便使用, 您可以直接在该模板文件夹下创建自己的
+文档.
+
+你的文档一开始应该引入模板类, 就像下面这样:
+\begin{minted}{tex}
+    \documentclass[<option>]{cugthesis}
+\end{minted}
+
+本模板提供了一个选项, 意在表明你是什么学位, 博士还是硕士, 学硕还是专硕, 全日制还是
+非全日制. 具体说明请查看表\ref{tab:classoptiondegree}.
+
+\begin{ttab}{模板选项}{tab:classoptiondegree}
+    \begin{tabular}{ll}
+        \toprule
+        文档选项 & 说明 \\
+        \midrule
+        doctor & 博士 \\
+        master & 硕士 \\
+        masterprofulltime & 全日制专硕 \\
+        masterpronofulltime & 非全日制专硕 \\
+        \bottomrule
+    \end{tabular}
+\end{ttab}
+
+比如说我是一个硕士, 我在使用的时候应该像下面这样:
+\begin{minted}{tex}
+    \documentclass[master]{cugthesis}
+\end{minted}
+
+在正确引入模板类后, 你就需要为你的论文添加一些相关信息了, 比如说论文题目, 论文作者, 
+指导老师等.
+
+模板为你提供了几个命令用来设置这些, 相关命令如表\ref{tab:cugthesisinfocmds}所示.
+\begin{ttab}{论文相关信息命令}{tab:cugthesisinfocmds}
+    \begin{tabular}{lll}
+        \toprule
+        命令 & 作用 & 用法 \\
+        \midrule
+        \tcodeinline{tex}{\cugthesistitle} & 论文标题 & \tcodeinline{tex}{\cugthesistitle{cntitle}{entitle}} \\
+        \tcodeinline{tex}{\cugthesismajor} & 专业 & \tcodeinline{tex}{\cugthesismajor{cnmajor}{enmajor}} \\
+        \tcodeinline{tex}{\cugthesisteacher} & 指导老师 & \tcodeinline{tex}{\cugthesisteacher{cnname}{enname}} \\
+        \tcodeinline{tex}{\cugthesisauthor} &  作者姓名 & \tcodeinline{tex}{\cugthesisauthor{cnname}{enname}} \\
+        \tcodeinline{tex}{\studentid} & 学号 & \tcodeinline{tex}{\studentid{1201711347}} \\
+        \tcodeinline{tex}{\educatingunit} & 培养单位 & \tcodeinline{tex}{\educatingunit{计算机学院}} \\
+        \tcodeinline{tex}{\cugthesisdate} & 时间 & \tcodeinline{tex}{\cugthesisdate{2018}{3}} \\
+        \bottomrule
+    \end{tabular}
+\end{ttab}
+
+然后你就应该像下面这样输入代码:
+\begin{minted}{tex}
+    \cugthesistitle{中国地质大学研究生学位论文 \LaTeXe{} 模板}{\cugthesis \LaTeXe{} 模板}
+    \cugthesisauthor{王震宇}{Zhenyu Wang}
+    \studentid{1201711347}
+    \cugthesismajor{计算机科学与技术}{Computer Science}
+    \cugthesisteacher{蔡之华}{Zhihua Cai}
+    \educatingunit{计算机学院}
+    \cugthesisdate{2018}{3}
+\end{minted}
+
+顺序无关紧要, 你可以根据你的喜好随意安排.
+
+然后就是开始你的正文了. 请将你的正文放入 document 环境中, 如下:
+\begin{minted}{tex}
+    \begin{document}
+        % 你的正文
+    \end{document}
+\end{minted}
+
+你的论文的摘要, 关键字等可以通过模板提供的相关命令来写, 具体命令如表\ref{tab:abstractcmds}所示.
+\begin{ttab}{摘要相关命令}{tab:abstractcmds}
+    \begin{tabular}{ll}
+        \toprule
+        命令 & 用法 \\
+        \midrule
+        \tcodeinline{tex}{\cugabstract} & \tcodeinline{tex}{\cugabstract{这里是中文摘要}{Here is english abstract}} \\
+        \tcodeinline{tex}{\cugkeywords} & \tcodeinline{tex}{\cugkeywords{关键字}{Keywords}} \\
+        \bottomrule
+    \end{tabular}
+\end{ttab}
+
+你的摘要应该像下面这样:
+\begin{minted}{tex}
+    \cugabstract{中文摘要}{English Abstract}
+    \cugkeywords{关键字}{Keywords} 
+\end{minted}
+
+接下来就是让 \LaTeX{} 生成论文正文前面的这些页面了, 比如说题名页, 原创性声明, 导师承诺书, 授权书, 摘要,
+目录, 插图清单, 表格清单等.
+你可以使用\tcodeinline{tex}{\makefrontpages}来生成. 这个是模板提供的命令.
+
+然后你就开始写你的正文. 当你的正文写完后, 需要些致谢, 参考文献这些的时候, 需要用\tcodeinline{tex}{\backmatter}
+命令来开启章节不编号功能. 当你需要为你的论文添加附录的时候, 你需要使用\tcodeinline{tex}{\appendix}命令来开启
+章节字母编号功能.
+
+最后, 你的整个论文源码应该类似下面这样:
+\begin{minted}{tex}
+    \documentclass[master]{cugthesis}
+
+    \cugthesistitle{中国地质大学研究生学位论文 \LaTeXe{} 模板}{\cugthesis \LaTeXe{} 模板}
+    \cugthesisauthor{王震宇}{Zhenyu Wang}
+    \studentid{1201711347}
+    \cugthesismajor{计算机科学与技术}{Computer Science}
+    \cugthesisteacher{蔡之华}{Zhihua Cai}
+    \educatingunit{计算机学院}
+    \cugthesisdate{2018}{3}
+
+    \begin{document}
+        \cugabstract{中文摘要}{English Abstract}
+        \cugkeywords{关键字}{Keywords} 
+        \makefrontpages 
+        % 你的正文
+        \chapter{这是第一章}
+            % 更多内容
+        \section{这是一级标题}
+            % 更多内容
+        \subsection{这是二级标题}
+            % 更多内容
+
+        \backmatter
+        \chapter{致谢}
+            % 致谢内容
+        \cugthesisbib{参考文献数据库文件名}
+
+        \appendix
+        \chapter{这是附录A}
+            % 这里是附录内容
+    \end{document}
+\end{minted}
+
+基本使用说明到此为止, 祝您好运!
+
+\chapter{正文排版建议以及一些示例}
 
 \chapter{Utilities}
 
@@ -224,6 +447,19 @@ Developed!
 \section{Versino 0.3}
 \label{sec:versino_0_3}
 
+2018年 3月16日 星期五 18时44分24秒 CST
+
+这一版本中主要是完善说明文档, 基本将第二章写完了.
+
+在更新说明文档的过程中, 又对模板类进行了一次结构优化, 使用在使用的过程中需要输入
+的代码量更少, 这样大大简化了论文写作过程, 是作者专注于论文的内容, 而不是各种各样
+内容标记代码.
+
+此外, 这一版在写说明文档的时候还附带了写了一个简化代码的小工具. 比如说插图和表格,
+在论文写作规范中要求标题的位置不同, 你自己使用浮动体环境的时候需要自己有意设置标题位置,
+对此我做了一个封装, 使得你不用关心他们的标题到底应该放在哪儿.
+
+还在交叉引用的标号左右增加了一点距离, 使得看起来更美观.
 
 
 
@@ -231,7 +467,7 @@ Developed!
 \chapter{致谢}
 
 % 这里是参考文献
-%\tbib{bibFileName}
+\cugthesisbib{tex}
 
 \appendix
 \chapter{文档示例}

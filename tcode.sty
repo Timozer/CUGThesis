@@ -1,0 +1,80 @@
+% !TEX TS-program xelatex
+% !TEX encoding = UTF-8 Unicode
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  FileName: tcode.sty
+%%  Author:   Timozer
+%%  E-mail:   zhenyuwang94@gmail.com
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{tcode}[2018/02/03 v0.6 Source Code Environment]
+\RequirePackage[newfloat=true, cachedir=./_minted-cache, langlinenos=true]{minted}
+% minted package options chapter, section, 
+\RequirePackage{xcolor}
+\RequirePackage{xifthen}
+%\RequirePackage{caption}
+%\captionsetup{skip = 3pt, position=top, tableposition=top, figureposition=bottom}
+
+%-------------- 伪代码环境 -----------------
+%\newif\if@restonecol  
+%\let\algorithm\relax  
+%\let\endalgorithm\relax 
+
+%\RequirePackage[linesnumbered,ruled,vlined]{algorithm2e}%[ruled,vlined]{
+%\RequirePackage{algpseudocode}
+%\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+%\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+%-------------------------------------------
+
+\definecolor{mygray}{rgb}{0.85, 0.85, 0.85}
+%%----------------- minted code settings -----------------
+
+% \mintinline[opts]{lang}{code}
+% \inputminted[opts]{lang}{code}
+% \usemintedstyle[lang]{style}
+% 
+% 查阅 caption fancyvrb mdframed tcolorbox etoolbox floatrow
+% \theFancyVerbLine
+% options: breakanywhere(doesn't apply to \mintedinline), breaklines, codetagify=(list of strings), escapeinside=(string), framesep=(dim), label=, style=, texcl(enable latex code inside comments), xrightmargin=(dim)
+\setminted{%
+    baselinestretch=1, % 代码行间距
+    tabsize=4, 
+    autogobble, 
+    texcl, 
+    mathescape, 
+    frame=single, 
+    framerule=0pt, 
+    bgcolor=mygray, 
+    numbersep=2pt, 
+    xleftmargin=12pt,
+    fontsize=\small, 
+    fontfamily=tt, 
+    linenos, 
+    numbers=left, 
+    stepnumberfromfirst, 
+    stepnumber=1, 
+    numberblanklines,
+    breaklines,
+    breakanywhere,
+}
+
+% 在写文档时候用的一些选项: [options], firstline=, firstnumber=(auto|last|int), lastline=, highlightcolor=(color or name), highlightlines={1, 3-4}
+%\beforebeginenvironment{minted}{\begin{mdframed}}
+%\afterendenvironment{minted}{\end{mdframed}}
+% \surroundwithmdframed{minted}
+
+% define shortcuts
+\setmintedinline{autogobble, breakanywhere, breaklines, linenos=false, fontsize=\small, fontfamily=tt, bgcolor={}}
+\newcommand{\tcodeinline}[2]{%
+    \mintinline{#1}|#2|
+}
+
+% input file
+% \newmintedfile[marconame]{lang}{opts}
+% usage: \langfile
+%-------------------------------------------
+\endinput
