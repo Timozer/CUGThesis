@@ -1,0 +1,50 @@
+%!TEX TS-program = xelatex
+% vim: set fenc=utf-8
+
+% -*- coding: UTF-8; -*-
+%!TEX encoding = UTF-8 Unicode 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  FileName: ttools.sty
+%%  Author:   Timozer
+%%  E-mail:   zhenyuwang94@gmail.com
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{ttools}[2018/03/16 Some Useful Tools]
+
+\RequirePackage{etoolbox}
+
+\NewDocumentEnvironment{ttab}{m m}{%
+    \begin{table}[htbp]
+        \centering
+        \caption{#1}
+        \label{#2}
+    }{%
+    \end{table}
+}
+\NewDocumentEnvironment{tfig}{m m}{%
+    \begin{figure}[htbp]
+        \centering 
+    }{%
+        \caption{#1}
+        \label{#2}
+    \end{figure}
+}
+% for poems 
+\NewDocumentEnvironment{tpoem}{m m}{%
+    \vskip.8ex
+    \begin{center}
+        \begin{minipage}{.65\textwidth}
+            \small \sffamily
+}{%
+        \rightline{------~#1《~#2~》}
+        \end{minipage}
+    \end{center}
+    \vskip.7ex
+}
+\AtBeginDocument{%
+    \let\oldref\ref%
+    \renewcommand{\ref}[1]{\hskip0.25em\oldref{#1}\hskip0.25em}
+}
+\endinput

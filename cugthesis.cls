@@ -103,20 +103,36 @@
 \cug@define@term{@entitlelogo}
 %\cug@define@term{title}
 \cug@define@term{entitle}
+\newcommand{\cugthesistitle}[2]{%
+    \title{#1}
+    \entitle{#2}
+}
 %\cug@define@term{author}
 \cug@define@term{enauthor}
+\newcommand{\cugthesisauthor}[2]{%
+    \author{#1}
+    \enauthor{#2}
+}
 \cug@define@term{studentid}
 \cug@define@term{major}
 \cug@define@term{enmajor}
+\newcommand{\cugthesismajor}[2]{%
+    \major{#1}
+    \enmajor{#2}
+}
 \cug@define@term{teacher}
 \cug@define@term{supervisor}
+\newcommand{\cugthesisteacher}[2]{%
+    \teacher{#1}
+    \supervisor{#2}
+}
 \cug@define@term{educatingunit}
 \ifcug@masterpronofulltime
     \cug@define@term{corporatementor}
 \fi
 \RequirePackage{zhnumber}
-\newcommand{\cugdate}[2]{%
-    \zhdigits{#1}年\zhdigits{#2}月
+\newcommand{\cugthesisdate}[2]{%
+    \date{\zhdigits{#1}年\zhdigits{#2}月}
 }
 %\cug@define@term{date}
 \newcommand{\cug@info@table@majorname}{学科专业}
@@ -306,32 +322,42 @@
     \thispagestyle{empty}
 }
 
-\newtoks\cugabstract
-\newtoks\cugenabstract
-\cug@define@term{keywords}
-\cug@define@term{enkeywords}
+\newcommand{\cugabstract}[2]{%
+    \cug@abstract{#1}
+    \cug@enabstract{#2}
+}
+\newcommand{\cugkeywords}[2]{%
+    \cug@keywords{#1}
+    \cug@enkeywords{#2}
+}
+\newtoks\cug@abstract
+\newtoks\cug@enabstract
+\newtoks\cug@keywords
+\newtoks\cug@enkeywords
+%\cug@define@term{thesis@keywords}
+%\cug@define@term{thesis@enkeywords}
 
 \newcommand{\cug@make@abstract}{%
     \cleardoublepage 
     \AppChapter{摘\quad 要}{Abstract (in Chinese)}
     \setcounter{page}{1}
     {\cug@xiaosi
-    \the\cugabstract 
+    \the\cug@abstract 
     }
     \vskip .5\baselineskip 
     \noindent
-    {\cug@xiaosi {\bfseries 关键词:}\hskip0.5em \cug@keywords}
+    {\cug@xiaosi {\bfseries 关键词:}\hskip0.5em \the\cug@keywords}
     \clearpage 
 }
 \newcommand{\cug@make@enabstract}{%
     \cleardoublepage 
     \AppChapter{Abstract}{Abstract (in Chinese)}
     {\cug@xiaosi
-    \the\cugenabstract 
+    \the\cug@enabstract 
     }
     \vskip .5\baselineskip 
     \noindent
-    {\cug@xiaosi {\bfseries Keywords:}\hskip0.5em \cug@enkeywords}
+    {\cug@xiaosi {\bfseries Keywords:}\hskip0.5em \the\cug@enkeywords}
     \clearpage 
 }
 %%%%%%%%%%%%%%%% List of Contents Format %%%%%%%%%%%%%%%%%%
@@ -401,10 +427,9 @@
     \chapter*{#1}
 }
 
-    
-\newcommand{\tbib}[1]{%
+\newcommand{\cugthesisbib}[1]{%
     \bibliography{#1}
-    \addcontentsline{toc}{chapter}{\bf 参考文献}
+    \addcontentsline{toc}{chapter}{参考文献}
 }
 
 % \RequirePackage{cleveref}
