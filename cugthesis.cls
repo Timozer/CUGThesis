@@ -46,7 +46,6 @@
 
 %------------------------------------------
 \RequirePackage{cugthesisfont}
-\RequirePackage{timozerbib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ctexset{%
     space=auto,
@@ -285,10 +284,24 @@
     \clearpage
     \thispagestyle{empty}
 }
+\newcounter{cug@authorcv@section}
+\newcommand{\cugauthorcvsection}[1]{%
+    \stepcounter{cug@authorcv@section}
+    {\par \bfseries \noindent \chinese{cug@authorcv@section}、 #1}\par
+}
+\newcommand{\cugauthorcvinfoitem}[3]{%
+    \hspace{2.6em} \makebox[3em][r]{#1} -- \makebox[3em][l]{#2}\quad  #3; \hfill\par 
+}
 \newcommand{\cug@make@authorcv}{%
     \cleardoublepage
     \thispagestyle{empty}
-        \@author 简历
+    \leavevmode 
+    \vspace*{\baselineskip}
+    {\hfill{\cug@sanhao\bfseries 作者简介}\hfill}
+    \vspace*{\baselineskip}
+    {\newlength{\oldbaselineskip}\setlength{\oldbaselineskip}{\baselineskip}\setlength{\baselineskip}{20pt}
+        \input{authorcv}
+     \setlength{\baselineskip}{\oldbaselineskip}}
     \clearpage
     \thispagestyle{empty}
 }
@@ -453,5 +466,9 @@
 
 % Logo
 \NewDocumentCommand{\cugthesis}{}{{\rmfamily \scshape CugThesis}}
+% 参考文献
+\RequirePackage[sort&compress]{natbib}
+\bibliographystyle{gbt7714-2005}
+\bibpunct{[}{]}{;}{s}{}{;}
 %--------------- Source Code ---------------
 \endinput 
