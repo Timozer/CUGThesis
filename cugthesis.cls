@@ -141,23 +141,23 @@
 \newcommand{\cug@extrapages@degree}{硕士}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifcug@doctor
-    \@titlelogo{中国地质大学\\博士学位论文}
-    \renewcommand{\cug@info@entable@degree{Ph.D. Candidate}}
+    \@titlelogo{博士学位论文}
+    \renewcommand{\cug@info@entable@degree}{Ph.D. Candidate}
     \renewcommand{\cug@extrapages@degree}{博士}
     \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Doctor Degree of \cug@enmajor} 
 \fi
 \ifcug@master
-    \@titlelogo{中国地质大学\\硕士学位论文}
+    \@titlelogo{硕士学位论文}
     \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Master Degree of \cug@enmajor} 
 \fi
 \ifcug@masterprofulltime
-    \@titlelogo{中国地质大学\\硕士专业学位论文（全日制）}
+    \@titlelogo{硕士专业学位论文（全日制）}
     \renewcommand{\cug@info@table@majorname}{专业学位类型}
     \renewcommand{\cug@info@entable@majorname}{Professional Degree Type}
     \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Full-Time Master of Professional Degree of \\ \cug@enmajor} 
 \fi
 \ifcug@masterpronofulltime
-    \@titlelogo{中国地质大学\\硕士专业学位论文（非全日制）}
+    \@titlelogo{硕士专业学位论文（非全日制）}
     \renewcommand{\cug@info@table@majorname}{专业学位类型}
     \renewcommand{\cug@info@entable@majorname}{Professional Degree Type}
     \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Part-Time Master of Professional Degree of \\ \cug@enmajor} 
@@ -203,7 +203,7 @@
         \begin{center}\leavevmode
             {\songti \cug@sanhao{学校代码: 10491 \hfill 研究生学号: \cug@studentid }}
             \vspace*{2\baselineskip}
-            {\par \cug@yihao \songti \bfseries \cug@@titlelogo \par}
+            {\par \cug@yihao \songti \bfseries 中国地质大学\\ \cug@@titlelogo \par}
             \vspace*{2.5\baselineskip}
             {\par \cug@erhao \heiti \bfseries \@title \par} %
             \vfill
@@ -396,7 +396,7 @@
 \fancypagestyle{cug@pagestyle}{%
     \pagestyle{fancy}
     \fancyhf{}
-    \fancyhead[CO]{\cug@wuhao 中国地质大学}
+    \fancyhead[CO]{\cug@wuhao 中国地质大学\cug@@titlelogo}
     \fancyhead[RO, LE]{\cug@wuhao \thepage}
     \fancyhead[CE]{\cug@wuhao \@author: \@title}
     \renewcommand{\headrulewidth}{0.4pt}
