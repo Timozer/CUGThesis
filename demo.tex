@@ -30,23 +30,13 @@
 
 \cugkeywords{中国地质大学; 学位论文;  \LaTeX{} 模板; 研究生}{CUGThesis; \LaTeXe{} Template}
 
-%\cugenabstract{This article is a description of the \LaTeXe{} template for a graduate dissertation of the 
-                %China University of Geosciences (Wuhan). This article mainly introduces
-                %The template's writing background, writing purpose, usages, and a little introduction about 
-                %how this template is written, of course there is also some useful utilities written by myself.
-                %This article can also be used as a \LaTeXe{} model for graduate students of the China University of Geosciences (Wuhan).
-                %the sample files for the board, because the content of this paper basically complies 
-                %with the ``Chinese University of Geosciences (Wuhan) Graduate Dissertation Writing Regulations
-                %Van ''(Version 2015).}
-%\enkeywords{CUGThesis; \LaTeXe{} Template}
-
 \makefrontpages 
 
 \chapter{绪论}
 
 \section{背景}
 \label{sec:bei_jing_}
-    请允许我先简单介绍一下 \TeX{}, \LaTeX{}, CTeX, Texlive, 
+    请允许我先简单介绍一下 \TeX{}, \LaTeX{}, 
     因为可能很多人都没有听过这个软件, 自然就谈不上使用它了.
 \subsection{什么是 \TeX{}?}
 \label{sec:sub_what_is_tex_}
@@ -213,31 +203,50 @@ git clone https://github.com/Timozer/CUGThesis.git
 
 下载完成后请将压缩包解压, 然后清点一下文件, 看是否残缺, 本模板主要文件如表\ref{tab:templatefiles}所示.
 \begin{ttab}{模板主要文件}{tab:templatefiles}
-    \begin{tabular}{lll}
+    \begin{tabular}{ll}
         \toprule
-        文件名 & 相对路径 & 说明 \\
+        文件名 & 说明 \\
         \midrule
-        cugthesis.cls & ./ & 模板文档类主要文件 \\
-        cugthesisfont.sty & ./ & 模板字体设置 \\
-        authorcv.tex & ./ & 作者简介 \\
-        gbt77140-2005.bst & ./ & 参考文献样式 \\
-        demo.tex & ./ & 本说明文档的 tex 源码文件 \\
-        demo.pdf & ./ & 本说明文档 \\
-        example.tex & ./ & 示例源码文件 \\
-        example.pdf & ./ & 示例文档 \\
-        tex.bib & ./ & 本文档引用的参考文献数据库 \\
-        ttools.sty & ./ & 小工具宏包 \\
-        tcode.sty & ./ & 代码环境设置 \\
-        LICENSE & ./ & 协议文件 \\
-        README.md & ./ & readme \\
-        Makefile & ./ & make 自动化工具所需文件 \\
+        cugthesis.cls &  模板文档类主要文件 \\
+        cugthesisfont.sty &  模板字体设置 \\
+        authorcv.tex &  作者简介 \\
+        gbt77140-2005.bst &  参考文献样式 \\
+        demo.tex &  本说明文档的 tex 源码文件 \\
+        demo.pdf &  本说明文档 \\
+        example.tex &  示例源码文件 \\
+        example.pdf &  示例文档 \\
+        tex.bib &  本文档引用的参考文献数据库 \\
+        ttools.sty &  小工具宏包 \\
+        tcode.sty &  代码环境设置 \\
+        LICENSE &  协议文件 \\
+        README.md &  readme \\
+        Makefile &  make 自动化工具所需文件 \\
         \bottomrule 
     \end{tabular}
 \end{ttab}
 
 \subsection{\LaTeX{}系统安装使用}
 \label{sub:xi_tong_an_zhuang_shi_yong_}
+\subsubsection{Windows \& Linux}
+\label{ssub:Windows_Linux}
+你可以在华科大开源镜像站获取到 texlive\footnote{\url{http://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/}}
+的镜像文件.
 
+\subsubsection{Mac OSX}
+\label{ssub:Mac_OSX}
+Mac 用户请使用 MacTex\footnote{\url{https://www.tug.org/mactex/}}.
+
+\begin{tfig}{MacTeX 下载首页}{fig:mactexdownload}
+    \includegraphics[width=\textwidth]{./imgs//mactexdownload.png}
+\end{tfig}
+
+点击图中红色标出的链接, 进入下一页, 如图\ref{fig:mactexpkg}.
+
+\begin{tfig}{MacTeX pkg 下载}{fig:mactexpkg}
+    \includegraphics[width=.6\textwidth]{./imgs/mactexpkg.png}
+\end{tfig}
+
+然后下载那个 pkg 安装包, 大约有 3.14 GB\@.
 \section{模板基本使用}
 \label{sec:mo_ban_ji_ben_shi_yong_}
 要使用本模板, 您首先得具备基本的 \LaTeX{} 知识, 本模板的存在只是尽可能让你在
@@ -388,6 +397,29 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
 
 \chapter{正文排版建议以及一些示例}
 
+\section{参考文献}
+\label{sec:can_kao_wen_xian_}
+
+本模板引入参考文献的命令是\tcodeinline{tex}{\cugthesisbib{bib_file_name}}.
+会自动添加 ``参考文献'' 章节标题以及目录项, 所以不用你额外再写诸如\tcodeinline{tex}{\chapter{参考文献}}之类的代码.
+
+\emph{bib\_file\_name} 是指你的参考文献数据库. 
+
+关于参考文献数据库你可以自己手动录入, 也可以使用工具自动生成. 比如说 Zotero, JabRef, Mendeley 这些参考文献
+管理工具. 如图\ref{fig:bibtoolexport}所示是我用 Zotero 导出文献引用数据.
+\begin{tfig}{Zotero导出参考文献引用数据}{fig:bibtoolexport}
+    \begin{minipage}{.66\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/zoteroexport1.png}
+    \end{minipage}%
+    \begin{minipage}{.33\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/zoteroexportbibtex.png}
+    \end{minipage}
+\end{tfig}
+
+你也可以在下载参考文献的时候下载其对应的 cite key, 如图\ref{fig:bibcitekey}. 
+\begin{tfig}{文献 bibtex}{fig:bibcitekey}
+    \includegraphics[width=.7\textwidth]{./imgs/papercitekey.png}
+\end{tfig}
 \chapter{Utilities}
 
 \chapter{实现}
