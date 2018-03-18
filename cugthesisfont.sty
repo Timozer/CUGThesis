@@ -27,24 +27,28 @@
 %\newCJKfontfamily[SmallCaps]\SCF{SmallCaps.otf}
 
 %%------------- Chinese Fonts  -------------
-%\setCJKmainfont[ 
-        %BoldFont = Hiragino Sans GB W6, ItalicFont = STKaiti
-    %]{FZShuSong-Z01S}
-%\setCJKsansfont[
-    %BoldFont = Hiragino Sans GB, 
-    %]{Hiragino Sans GB}
-%\setCJKmonofont{FZShuSong-Z01S}
+\setCJKmainfont[ 
+        BoldFont = SourceHanSerifSC-Bold, 
+        ItalicFont = STKaiti,
+        %BoldItalicFont = STKaiti-SC-Bold,
+    ]{SourceHanSerifSC-Regular}
+\setCJKsansfont[
+    BoldFont = SourceHanSansSC-Bold, 
+    ]{SourceHanSansSC-Regular}
+\setCJKmonofont[
+    BoldFont = SourceHanSansSC-Bold, 
+    ]{SourceHanSansSC-Regular}
 
 %%%------------- English Fonts  -------------
 \setmainfont[
     ItalicFont = {Times New Roman Italic},
     BoldFont = {Times New Roman Bold},
-    %SmallCapsFont={Fontin SmallCaps},
+    BoldItalicFont = {Times New Roman Bold Italic},
     SmallCapsFont = {Bodoni 72 Smallcaps},
     %SmallCapsFeatures={Letters=SmallCaps},
 ]{Times New Roman}
 \setsansfont{Optima}
-\setmonofont{Monaco}
+\setmonofont[BoldFont=Source Code Pro Semibold]{Source Code Pro}
 
 \def\cug@define@fontsize#1#2{%
     \expandafter\newcommand\csname #1\endcsname[1][\baselinestretch]{%
