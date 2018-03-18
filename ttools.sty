@@ -15,6 +15,10 @@
 
 \RequirePackage{etoolbox}
 
+\NewDocumentCommand{\cmd}{m}{\texttt{\small $\backslash$#1}}
+\NewDocumentCommand{\email}{m}{\texttt{\small $\backslash$#1}}
+
+
 \NewDocumentEnvironment{ttab}{m m}{%
     \begin{table}[htbp]
         \centering

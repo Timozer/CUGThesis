@@ -32,14 +32,12 @@
 %%%%%%%%%%%%%%%%%%%%%%% Load Packages %%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{xifthen, xparse, xstring, fancyhdr, etoolbox}
 
-% ams-tex, 用来排出漂亮的公式
 \RequirePackage{amstext, amsmath, amssymb, amsfonts}
 \RequirePackage{mathrsfs, bm, mathtools}
 
-% 图形支持宏包
 \RequirePackage{graphicx}
 \RequirePackage[labelformat=simple]{subcaption}
-% 表格控制
+
 \RequirePackage{array, longtable, makecell, tabu, booktabs}
 
 \RequirePackage{enumitem} % 修改列表样式
@@ -54,26 +52,27 @@
         afterindent=true,
         pagestyle=cug@pagestyle,
         aftername={\quad},
-        format={\centering\bfseries\cug@sanhao},
+        format={\centering\sffamily\bfseries\cug@sanhao},
         beforeskip={2ex},
         afterskip={2ex},
     },
     section={%
         afterindent=true,
         aftername={\quad},
-        format={\centering\bfseries\cug@sihao},
+        format={\centering\sffamily\bfseries\cug@sihao},
         beforeskip={1ex},
         afterskip={1ex},
     },
     subsection={%
         afterindent=true,
         aftername={\quad},
-        format={\flushleft\cug@xiaosi},
+        format={\flushleft\sffamily\cug@xiaosi},
         beforeskip={1ex},
         afterskip={1ex},
     },
     subsubsection={%
         afterindent=true,
+        format={\flushleft\sffamily\bfseries\cug@xiaosi},
         beforeskip={1ex},
         afterskip={1ex},
     },
@@ -201,16 +200,16 @@
     \begin{titlepage}
         \thispagestyle{empty}
         \begin{center}\leavevmode
-            {\songti \cug@sanhao{学校代码: 10491 \hfill 研究生学号: \cug@studentid }}
+            {\cug@sanhao{学校代码: 10491 \hfill 研究生学号: \cug@studentid }}
             \vspace*{2\baselineskip}
-            {\par \cug@yihao \songti \bfseries 中国地质大学\\ \cug@@titlelogo \par}
+            {\par \cug@yihao \bfseries 中国地质大学\\ \cug@@titlelogo \par}
             \vspace*{2.5\baselineskip}
-            {\par \cug@erhao \heiti \bfseries \@title \par} %
+            {\par \cug@erhao \sffamily \bfseries \@title \par} %
             \vfill
-            {\cug@sanhao \songti{\cug@info@table }}
+            {\cug@sanhao \cug@info@table}
             \vfill
             {\cug@sanhao{\@date}}%
-            %\vspace*{\baselineskip}
+            \vspace*{\baselineskip}
         \end{center}
         \clearpage
         \thispagestyle{empty}
@@ -285,9 +284,8 @@
     \fi
     \cleardoublepage
     \thispagestyle{empty}
-    %\renewcommand\arraystretch{1.5} % 将行距还原
     \vskip \baselineskip
-    {\heiti \cug@sanhao{中国地质大学（武汉）研究生学位论文\cug@@extrapages@type}}
+    {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）研究生学位论文\cug@@extrapages@type}}
     \vskip 1.5\baselineskip
     {\cug@sihao{\the\@extrapages@content}}
     \vskip 1.5\baselineskip
@@ -303,7 +301,7 @@
 \newcounter{cug@authorcv@section}
 \newcommand{\cugauthorcvsection}[1]{%
     \stepcounter{cug@authorcv@section}
-    {\par \bfseries \noindent \chinese{cug@authorcv@section}、 #1}\par
+    {\par \sffamily\bfseries \noindent \chinese{cug@authorcv@section}、 #1}\par
 }
 \newcommand{\cugauthorcvinfoitem}[3]{%
     \hspace{2.6em} \makebox[3em][r]{#1} -- \makebox[3em][l]{#2}\quad  #3; \hfill\par 
@@ -313,7 +311,7 @@
     \thispagestyle{empty}
     \leavevmode 
     \vspace*{\baselineskip}
-    {\hfill{\cug@sanhao\bfseries 作者简介}\hfill}
+    {\hfill{\cug@sanhao\sffamily\bfseries 作者简介}\hfill}
     \vspace*{\baselineskip}
     {\newlength{\oldbaselineskip}\setlength{\oldbaselineskip}{\baselineskip}\setlength{\baselineskip}{20pt}
         \input{authorcv}
@@ -322,6 +320,10 @@
     \thispagestyle{empty}
 }
 
+\newtoks\cug@abstract
+\newtoks\cug@enabstract
+\newtoks\cug@keywords
+\newtoks\cug@enkeywords
 \newcommand{\cugabstract}[2]{%
     \cug@abstract{#1}
     \cug@enabstract{#2}
@@ -330,12 +332,6 @@
     \cug@keywords{#1}
     \cug@enkeywords{#2}
 }
-\newtoks\cug@abstract
-\newtoks\cug@enabstract
-\newtoks\cug@keywords
-\newtoks\cug@enkeywords
-%\cug@define@term{thesis@keywords}
-%\cug@define@term{thesis@enkeywords}
 
 \newcommand{\cug@make@abstract}{%
     \cleardoublepage 
@@ -369,13 +365,10 @@
 \setlength{\cftchapindent}{0em}
 \setlength{\cftsecindent}{1.2\ccwd}
 \setlength{\cftsubsecindent}{2.5\ccwd}
-\renewcommand{\cftchapfont}{\cug@sihao\songti}
-\renewcommand{\cftsecfont}{\cug@xiaosi\songti}
-\renewcommand{\cftsubsecfont}{\cug@xiaosi\songti}
+\renewcommand{\cftchapfont}{\cug@sihao}
+\renewcommand{\cftsecfont}{\cug@xiaosi}
+\renewcommand{\cftsubsecfont}{\cug@xiaosi}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}}
-%\renewcommand{\cfttoctitlefont}{\cug@sanhao\heiti\bfseries}
-%\renewcommand{\cftloftitlefont}{\cug@sanhao\heiti\bfseries}
-%\renewcommand{\cftlottitlefont}{\cug@sanhao\heiti\bfseries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %------------------ 目录中的超链接(pdf 文档) ----------------------
@@ -411,7 +404,6 @@
     \clearpage
     \setcounter{chapter}{0}
     \pagenumbering{arabic}
-    %\pagestyle{cug@pagestyle}
 }
 
 \let\cug@appendix = \appendix
@@ -478,9 +470,9 @@
 \setlist[itemize]{parsep=0pt, itemsep=0pt, topsep=0pt, rightmargin=2em, partopsep=2pt}
 \setlist[enumerate]{parsep=0pt, itemsep=0pt, topsep=0pt, rightmargin=2em, partopsep=2pt}
 \setlist[description]{parsep=0pt, itemsep=0pt, topsep=0pt, rightmargin=2em, partopsep=2pt}
-\AtBeginEnvironment{itemize}{\small}
-\AtBeginEnvironment{enumerate}{\small}
-\AtBeginEnvironment{description}{\small}
+%\AtBeginEnvironment{itemize}{\small}
+%\AtBeginEnvironment{enumerate}{\small}
+%\AtBeginEnvironment{description}{\small}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%% The format of float's caption %%%%%%%%%%%%%%%%%%%%
 \RequirePackage{caption}
@@ -490,7 +482,7 @@
 \renewcommand{\theequation}{{\cug@wuhao\oldequation}}
 
 % Logo
-\NewDocumentCommand{\cugthesis}{}{{\rmfamily \scshape CugThesis}}
+\NewDocumentCommand{\cugthesis}{}{CUGThesis}
 % 参考文献
 \RequirePackage[sort&compress]{natbib}
 \bibliographystyle{gbt7714-2005}
