@@ -14,10 +14,11 @@
 \ProvidesPackage{ttools}[2018/03/16 Some Useful Tools]
 
 \RequirePackage{etoolbox}
+\RequirePackage{xcolor}
 
+\NewDocumentCommand{\tilcode}{m}{\colorbox{lightgray!50}{\ttfamily\small #1}}
 \NewDocumentCommand{\cmd}{m}{\texttt{\small $\backslash$#1}}
 \NewDocumentCommand{\email}{m}{\texttt{\small $\backslash$#1}}
-
 
 \NewDocumentEnvironment{ttab}{m m}{%
     \begin{table}[htbp]

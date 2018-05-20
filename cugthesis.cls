@@ -14,14 +14,16 @@
 \ProvidesClass{cugthesis}[2018/03/13 Version 0.1 China University of Geosciences Thesis Template]
 
 \newif\ifcug@doctor\cug@doctorfalse
-\newif\ifcug@master\cug@mastertrue
+\newif\ifcug@master\cug@mastertrue  % default the student's degree is master
 \newif\ifcug@masterprofulltime\cug@masterprofulltimefalse
 \newif\ifcug@masterpronofulltime\cug@masterpronofulltimefalse
+\newif\ifcug@bachelor\cug@bachelorfalse
 
-\DeclareOption{doctor}{\cug@doctortrue\cug@masterfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse}
-\DeclareOption{master}{\cug@mastertrue\cug@doctorfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse}
-\DeclareOption{masterprofulltime}{\cug@masterprofulltimetrue\cug@doctorfalse\cug@masterfalse\cug@masterpronofulltimefalse}
-\DeclareOption{masterpronofulltime}{\cug@masterpronofulltimetrue\cug@doctorfalse\cug@masterfalse\cug@masterprofulltimefalse}
+\DeclareOption{doctor}{\cug@doctortrue\cug@masterfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
+\DeclareOption{master}{\cug@mastertrue\cug@doctorfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
+\DeclareOption{masterprofulltime}{\cug@masterprofulltimetrue\cug@doctorfalse\cug@masterfalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
+\DeclareOption{masterpronofulltime}{\cug@masterpronofulltimetrue\cug@doctorfalse\cug@masterfalse\cug@masterprofulltimefalse\cug@bachelorfalse}
+\DeclareOption{bachelor}{\cug@bachelortrue\cug@doctorfalse\cug@masterfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse}
 %\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}} % I don't want you to pass options to the ctexbook class
 \ProcessOptions\relax
 
@@ -134,16 +136,16 @@
     \date{\zhdigits{#1}年\zhdigits{#2}月}
 }
 %\cug@define@term{date}
+\newcommand{\cug@degree@cn}{硕士}
+\newcommand{\cug@degree@en}{Master}
 \newcommand{\cug@info@table@majorname}{学科专业}
-\newcommand{\cug@info@entable@degree}{Master Candidate}
 \newcommand{\cug@info@entable@majorname}{Major}
-\newcommand{\cug@extrapages@degree}{硕士}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifcug@doctor
     \@titlelogo{博士学位论文}
-    \renewcommand{\cug@info@entable@degree}{Ph.D. Candidate}
-    \renewcommand{\cug@extrapages@degree}{博士}
     \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Doctor Degree of \cug@enmajor} 
+    \renewcommand{\cug@degree@cn}{博士}
+    \renewcommand{\cug@degree@en}{Ph.D.}
 \fi
 \ifcug@master
     \@titlelogo{硕士学位论文}
@@ -151,15 +153,21 @@
 \fi
 \ifcug@masterprofulltime
     \@titlelogo{硕士专业学位论文（全日制）}
+    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Full-Time Master of Professional Degree of \\ \cug@enmajor} 
     \renewcommand{\cug@info@table@majorname}{专业学位类型}
     \renewcommand{\cug@info@entable@majorname}{Professional Degree Type}
-    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Full-Time Master of Professional Degree of \\ \cug@enmajor} 
 \fi
 \ifcug@masterpronofulltime
     \@titlelogo{硕士专业学位论文（非全日制）}
+    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Part-Time Master of Professional Degree of \\ \cug@enmajor} 
     \renewcommand{\cug@info@table@majorname}{专业学位类型}
     \renewcommand{\cug@info@entable@majorname}{Professional Degree Type}
-    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Part-Time Master of Professional Degree of \\ \cug@enmajor} 
+\fi
+\ifcug@bachelor
+    \@titlelogo{学士学位论文}
+    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Bachelor Degree of \\ \cug@enmajor}
+    \renewcommand{\cug@degree@cn}{学士}
+    \renewcommand{\cug@degree@en}{Bachelor}
 \fi
 
 \newcommand{\cug@info@table@item}[2]{
@@ -177,15 +185,15 @@
     \end{tabular}
 }
 \newcommand{\cug@info@entable}{%
-    \begin{minipage}{.47\textwidth}
+    \begin{minipage}{.45\textwidth}
         \begin{flushright}
             \makebox[.46\textwidth][s]{}\\
-            \cug@info@entable@degree: \\
+            \cug@degree@en Candidate: \\
             \cug@info@entable@majorname: \\
             Supervisor:
         \end{flushright}
-    \end{minipage}
-    \begin{minipage}{.47\textwidth}
+    \end{minipage}%
+    \begin{minipage}{.54\textwidth}
         \begin{flushleft}
             \makebox[.46\textwidth][s]{}\\
             \cug@enauthor \\
@@ -200,7 +208,11 @@
     \begin{titlepage}
         \thispagestyle{empty}
         \begin{center}\leavevmode
-            {\cug@sanhao{学校代码: 10491 \hfill 研究生学号: \cug@studentid }}
+            \ifcug@bachelor
+                {\cug@sanhao{学校代码: 10491 \hfill 本科生学号: \cug@studentid }}
+            \else
+                {\cug@sanhao{学校代码: 10491 \hfill 研究生学号: \cug@studentid }}
+            \fi
             \vspace*{2\baselineskip}
             {\par \cug@yihao \bfseries 中国地质大学\\ \cug@@titlelogo \par}
             \vspace*{2.5\baselineskip}
@@ -246,12 +258,12 @@
     \ifnum#1=1
     \@extrapages@type{原创性声明}
     \@extrapages@content{
-        本人郑重声明: 本人所呈交的\cug@extrapages@degree{}士学位论文《\@title》, 是本人在导师的指导下, 
-        在中国地质大学（武汉）攻读\cug@extrapages@degree{}学位期间独立进行研究工作所取得的成果. 
+        本人郑重声明: 本人所呈交的\cug@degree@cn{}士学位论文《 \@title 》, 是本人在导师的指导下, 
+        在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果. 
         论文中除已注明部分外不包含他人已发表或撰写过的研究成果, 
         对论文的完成提供过帮助的有关人员已在文中说明并致以谢意. 
         \\
-        \indent 本人所呈交的\cug@extrapages@degree{}学位论文没有违反学术道德和学术规范, 没有侵权行为, 
+        \indent 本人所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范, 没有侵权行为, 
         并愿意承担由此而产生的法律责任和法律后果. 
     }
     \@extrapages@signature{学位论文作者签名}
@@ -259,10 +271,10 @@
         \ifnum#1=2
             \@extrapages@type{导师承诺书}
             \@extrapages@content{
-                 本人郑重承诺: 本人所指导的\@author{}学位论文《\@title{}》是在本人的指导下, 
-                研究生在中国地质大学（武汉）攻读\cug@extrapages@degree{}学位期间独立进行研究工作所取得的成果, 论文由研究生独立完成. 
+                 本人郑重承诺: 本人所指导的\@author{}学位论文《 \@title{} 》是在本人的指导下, 
+                研究生在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果, 论文由研究生独立完成. 
                 \\
-               \indent 研究生所呈交的\cug@extrapages@degree{}学位论文没有违反学术道德和学术规范, 没有侵权行为, 
+               \indent 研究生所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范, 没有侵权行为, 
                 并愿意承担由此而产生的与导师相关的责任和后果. 
             }
             \@extrapages@signature{指导老师（签字）}
@@ -440,16 +452,24 @@
     \cug@make@entitle
 }
 \newcommand{\makeextrapages}{%
-    \cug@make@extrapages{1}
-    \cug@make@extrapages{2}
-    \cug@make@extrapages{3}
+    \ifcug@bachelor
+        \cug@make@extrapages{1}
+    \else
+        \cug@make@extrapages{1}
+        \cug@make@extrapages{2}
+        \cug@make@extrapages{3}
+    \fi
 }
 \newcommand{\makeauthorcv}{%
     \cug@make@authorcv
 }
 \newcommand{\makeabstract}{%
-    \cug@make@abstract
-    \cug@make@enabstract
+    \ifcug@bachelor
+        \cug@make@abstract
+    \else
+        \cug@make@abstract
+        \cug@make@enabstract
+    \fi
 }
 \newcommand{\makefrontpages}{%
     \maketitle
