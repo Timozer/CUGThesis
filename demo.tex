@@ -1,4 +1,4 @@
-\documentclass[doctor]{cugthesis}
+\documentclass[bachelor]{cugthesis}
 
 \usepackage{ttools}
 \usepackage{tcode}
@@ -152,20 +152,20 @@
 \begin{ttab}{\cugthesis{} 自动加载的宏包}{tab:packagesautoload}
     \begin{tabular}{>{\bfseries}cl}
         \toprule 
-        类别 & 宏包 \\
+        类别         & 宏包                                                         \\
         \midrule
-        模板开发类 & xifthen, xparse, etoolbox  \\
-        字体类 & xeCJK, fontsec \\
-        数学类 & amstext, amsmath, amssymb, amsfonts, mathrsfs, bm, mathtools \\
-        插图类 & graphicx, subcaption \\
-        表格类 & array, longtable, makecell, tabu, booktabs \\
-        列表类 & enumitem \\
-        模板  & cugthesisfont \\
-        页面布局 & geometry \\
-        目录样式 & tocloft \\
-        超链接 & hyperref, url \\
-        浮动环境标题 & caption \\
-        参考文献 & natbib \\
+        模板开发类   & xifthen, xparse, etoolbox                                    \\
+        字体类       & xeCJK, fontsec                                               \\
+        数学类       & amstext, amsmath, amssymb, amsfonts, mathrsfs, bm, mathtools \\
+        插图类       & graphicx, subcaption                                         \\
+        表格类       & array, longtable, makecell, tabu, booktabs                   \\
+        列表类       & enumitem                                                     \\
+        模板         & cugthesisfont                                                \\
+        页面布局     & geometry                                                     \\
+        目录样式     & tocloft                                                      \\
+        超链接       & hyperref, url                                                \\
+        浮动环境标题 & caption                                                      \\
+        参考文献     & natbib                                                       \\
         \bottomrule
     \end{tabular}
 \end{ttab}
@@ -174,9 +174,9 @@
 \begin{ttab}{系统环境}{tab:systems}
     \begin{tabular}{cl}
         \toprule
-        系统类别 & 编译环境 \\
+        系统类别 & 编译环境            \\
         \midrule 
-        Mac OSX & Texlive2017:xelatex \\
+        Mac OSX  & Texlive2017:xelatex \\
         \bottomrule  
     \end{tabular}
 \end{ttab}
@@ -205,22 +205,22 @@ git clone https://github.com/Timozer/CUGThesis.git
 \begin{ttab}{模板主要文件}{tab:templatefiles}
     \begin{tabular}{ll}
         \toprule
-        文件名 & 说明 \\
+        文件名            & 说明                       \\
         \midrule
-        cugthesis.cls &  模板文档类主要文件 \\
-        cugthesisfont.sty &  模板字体设置 \\
-        authorcv.tex &  作者简介 \\
-        gbt77140-2005.bst &  参考文献样式 \\
-        demo.tex &  本说明文档的 tex 源码文件 \\
-        demo.pdf &  本说明文档 \\
-        example.tex &  示例源码文件 \\
-        example.pdf &  示例文档 \\
-        tex.bib &  本文档引用的参考文献数据库 \\
-        ttools.sty &  小工具宏包 \\
-        tcode.sty &  代码环境设置 \\
-        LICENSE &  协议文件 \\
-        README.md &  readme \\
-        Makefile &  make 自动化工具所需文件 \\
+        cugthesis.cls     & 模板文档类主要文件         \\
+        cugthesisfont.sty & 模板字体设置               \\
+        authorcv.tex      & 作者简介                   \\
+        gbt77140-2005.bst & 参考文献样式               \\
+        demo.tex          & 本说明文档的 tex 源码文件  \\
+        demo.pdf          & 本说明文档                 \\
+        example.tex       & 示例源码文件               \\
+        example.pdf       & 示例文档                   \\
+        tex.bib           & 本文档引用的参考文献数据库 \\
+        ttools.sty        & 小工具宏包                 \\
+        tcode.sty         & 代码环境设置               \\
+        LICENSE           & 协议文件                   \\
+        README.md         & readme                     \\
+        Makefile          & make 自动化工具所需文件    \\
         \bottomrule 
     \end{tabular}
 \end{ttab}
@@ -236,15 +236,15 @@ git clone https://github.com/Timozer/CUGThesis.git
 \label{ssub:Mac_OSX}
 Mac 用户请使用 MacTex\footnote{\url{https://www.tug.org/mactex/}}.
 
-\begin{tfig}{MacTeX 下载首页}{fig:mactexdownload}
-    \includegraphics[width=\textwidth]{./imgs//mactexdownload.png}
-\end{tfig}
+%\begin{tfig}{MacTeX 下载首页}{fig:mactexdownload}
+    %\includegraphics[width=\textwidth]{./imgs//mactexdownload.png}
+%\end{tfig}
 
 点击图中红色标出的链接, 进入下一页, 如图\ref{fig:mactexpkg}.
 
-\begin{tfig}{MacTeX pkg 下载}{fig:mactexpkg}
-    \includegraphics[width=.6\textwidth]{./imgs/mactexpkg.png}
-\end{tfig}
+%\begin{tfig}{MacTeX pkg 下载}{fig:mactexpkg}
+    %\includegraphics[width=.6\textwidth]{./imgs/mactexpkg.png}
+%\end{tfig}
 
 然后下载那个 pkg 安装包, 大约有 3.14 GB\@.
 \section{模板基本使用}
@@ -279,11 +279,11 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
 \begin{ttab}{模板选项}{tab:classoptiondegree}
     \begin{tabular}{ll}
         \toprule
-        文档选项 & 说明 \\
+        文档选项            & 说明 \\
         \midrule
-        doctor & 博士 \\
-        master & 硕士 \\
-        masterprofulltime & 全日制专硕 \\
+        doctor              & 博士 \\
+        master              & 硕士 \\
+        masterprofulltime   & 全日制专硕 \\
         masterpronofulltime & 非全日制专硕 \\
         \bottomrule
     \end{tabular}
@@ -410,9 +410,84 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
 \section{数学公式}
 \label{sec:shu_xue_gong_shi_}
 
+\subsection{公式环境建议}
+\label{sub:gong_shi_huan_jing_jian_yi_}
+
 在 \LaTeX{} 中插入数学公式有很多种方法, 包括行内公式和行间公式. 在这里根据我的使用经验, 给你提供一些建议.
 
-如果你想插入行内公式, 请使用\$公式\$, 虽然$\backslash($和$\backslash)$也能实现插入行内公式, 
+%如果你想插入行内公式, 请使用\$公式\$, 虽然$\backslash($和$\backslash)$也能实现插入行内公式, 
+如果你想插入行内公式, 请使用 \tilcode{\textbackslash(~\ldots~\textbackslash)}, 尽量不要使用 \tilcode{\$~\ldots~\$}.
+前者是 \LaTeX{} 中的符号, 后者是 \TeX{} 中的符号. 尽管你可以在 \LaTeX{} 中两者都使用, 但是当你在公式里面
+出现错误的时候, 前者不会给你太多费解的错误提示信息.
+
+但是你也要注意, \tilcode{\textbackslash(~\ldots~\textbackslash)} 是个 \emph{fragile} 命令, 不能用在章节标题中.
+当然如果你觉得你的公式不会出现错误, 你可以使用 \tilcode{\$~\ldots~\$}, 毕竟简洁清晰.
+
+下面给出 \tilcode{\textbackslash(} 和 \tilcode{\textbackslash)} 在 \LaTeX{} 中的定义, 体会一下不同.
+\begin{minted}{tex}
+    \DeclareRobustCommand\({%
+      \relax\ifmmode\@badmath\else$\fi}%
+    \DeclareRobustCommand\){%
+      \relax\ifmmode\ifinner$\else\@badmath\fi\else\@badmath\fi}%
+\end{minted}
+
+更多关于他们之间的讨论请参考脚注中提到的链接\footnote{\url{https://tex.stackexchange.com/questions/510/are-and-preferable-to-dollar-signs-for-math-mode}}.
+
+如果你想插入行间公式, 请使用 \tilcode{\textbackslash begin\{equation\}~\dots~\textbackslash end\{equation\}}. 
+尽管你可以使用 \tilcode{\$\$~\dots~\$\$} 或者是 \tilcode{\textbackslash[~\dots~\textbackslash]}, 但是
+在你的论文中肯定是需要给公式编号的, 用 \tilcode{equation} 公式环境容易实现公式编号, 其他两个能不能
+实现编号, 如何实现编号, 我不知道, 我也懒得去研究.
+
+{\noindent
+\begin{minipage}{.6\textwidth}
+    \begin{minted}{tex}
+        $$
+            E = mc^{2}
+        $$
+    \end{minted}
+\end{minipage}%
+\begin{minipage}{.4\textwidth}
+    $$
+        E = mc^{2}
+    $$
+\end{minipage}
+}
+
+{\noindent
+\begin{minipage}{.6\textwidth}
+    \begin{minted}{tex}
+        \[
+            E = mc^{2}
+        \]
+    \end{minted}
+\end{minipage}%
+\begin{minipage}{.4\textwidth}
+    \[
+        E = mc^{2}
+    \]
+\end{minipage}
+}
+
+{\noindent
+\begin{minipage}{.6\textwidth}
+    \begin{minted}{tex}
+        \begin{equation}
+            E = mc^{2}
+        \end{equation}
+    \end{minted}
+\end{minipage}%
+\begin{minipage}{.4\textwidth}
+        \begin{equation}
+            E = mc^{2}
+        \end{equation}
+\end{minipage}
+}
+
+更多关于这方面的讨论请参考脚注中的链接\footnote{\url{https://tex.stackexchange.com/questions/503/why-is-preferable-to}}.
+
+\subsection{公式排版建议}
+\label{sub:gong_shi_pai_ban_jian_yi_}
+
 
 \section{插图}
 \label{sec:cha_tu_}
@@ -431,19 +506,19 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
 
 关于参考文献数据库你可以自己手动录入, 也可以使用工具自动生成. 比如说 Zotero, JabRef, Mendeley 这些参考文献
 管理工具. 如图\ref{fig:bibtoolexport}所示是我用 Zotero 导出文献引用数据.
-\begin{tfig}{Zotero导出参考文献引用数据}{fig:bibtoolexport}
-    \begin{minipage}{.66\textwidth}
-        \includegraphics[width=\textwidth]{./imgs/zoteroexport1.png}
-    \end{minipage}%
-    \begin{minipage}{.33\textwidth}
-        \includegraphics[width=\textwidth]{./imgs/zoteroexportbibtex.png}
-    \end{minipage}
-\end{tfig}
+%\begin{tfig}{Zotero导出参考文献引用数据}{fig:bibtoolexport}
+    %\begin{minipage}{.66\textwidth}
+        %\includegraphics[width=\textwidth]{./imgs/zoteroexport1.png}
+    %\end{minipage}%
+    %\begin{minipage}{.33\textwidth}
+        %\includegraphics[width=\textwidth]{./imgs/zoteroexportbibtex.png}
+    %\end{minipage}
+%\end{tfig}
 
 你也可以在下载参考文献的时候下载其对应的 cite key, 如图\ref{fig:bibcitekey}. 
-\begin{tfig}{文献 bibtex}{fig:bibcitekey}
-    \includegraphics[width=.7\textwidth]{./imgs/papercitekey.png}
-\end{tfig}
+%\begin{tfig}{文献 bibtex}{fig:bibcitekey}
+    %\includegraphics[width=.7\textwidth]{./imgs/papercitekey.png}
+%\end{tfig}
 \chapter{Utilities}
 
 \chapter{实现}
@@ -530,6 +605,10 @@ Developed!
 思源宋体和思源黑体.
 
 这两款字体免费的, 在使用的时候不需要考虑版权的问题. 下载地址见脚注\footnote{\url{https://github.com/adobe-fonts}}.
+
+2018年 3月19日 星期一 09时13分52秒 CST
+
+代码测试: \tilcode{\$~\dots~\$}
 \backmatter{}
 \chapter{致谢}
 
