@@ -425,15 +425,21 @@
     \@mainmattertrue
 }
 
-\newcommand{\AppChapter}[2]{%
+\newcommand{\AppChapter}[1]{%
     \phantomsection
     \addcontentsline{toc}{chapter}{#1}
     \chapter*{#1}
 }
 
+\newcommand{\cugthesisacknowledgements}{%
+    \phantomsection
+    \chapter{致谢}
+}
 \newcommand{\cugthesisbib}[1]{%
-    \bibliography{#1}
+    \cleardoublepage 
+    \phantomsection
     \addcontentsline{toc}{chapter}{参考文献}
+    \bibliography{#1}
 }
 
 % \RequirePackage{cleveref}
@@ -507,5 +513,6 @@
 \RequirePackage[sort&compress]{natbib}
 \bibliographystyle{gbt7714-2005}
 \bibpunct{[}{]}{;}{s}{}{;}
+\addtolength{\bibsep}{-1.5ex}
 %--------------- Source Code ---------------
 \endinput 
