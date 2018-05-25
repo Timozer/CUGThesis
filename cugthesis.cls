@@ -297,7 +297,11 @@
     \cleardoublepage
     \thispagestyle{empty}
     \vskip \baselineskip
-    {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）研究生学位论文\cug@@extrapages@type}}
+    \ifcug@bachelor
+        {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）本科生学位论文\cug@@extrapages@type}}
+    \else
+        {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）研究生学位论文\cug@@extrapages@type}}
+    \fi
     \vskip 1.5\baselineskip
     {\cug@sihao{\the\@extrapages@content}}
     \vskip 1.5\baselineskip
