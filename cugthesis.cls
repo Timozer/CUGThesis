@@ -297,7 +297,11 @@
     \cleardoublepage
     \thispagestyle{empty}
     \vskip \baselineskip
-    {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）研究生学位论文\cug@@extrapages@type}}
+    \ifcug@bachelor
+        {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）本科生学位论文\cug@@extrapages@type}}
+    \else
+        {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）研究生学位论文\cug@@extrapages@type}}
+    \fi
     \vskip 1.5\baselineskip
     {\cug@sihao{\the\@extrapages@content}}
     \vskip 1.5\baselineskip
@@ -425,15 +429,21 @@
     \@mainmattertrue
 }
 
-\newcommand{\AppChapter}[2]{%
+\newcommand{\AppChapter}[1]{%
     \phantomsection
     \addcontentsline{toc}{chapter}{#1}
     \chapter*{#1}
 }
 
+\newcommand{\cugthesisacknowledgements}{%
+    \phantomsection
+    \chapter{致谢}
+}
 \newcommand{\cugthesisbib}[1]{%
-    \bibliography{#1}
+    \cleardoublepage 
+    \phantomsection
     \addcontentsline{toc}{chapter}{参考文献}
+    \bibliography{#1}
 }
 
 % \RequirePackage{cleveref}
@@ -507,5 +517,6 @@
 \RequirePackage[sort&compress]{natbib}
 \bibliographystyle{gbt7714-2005}
 \bibpunct{[}{]}{;}{s}{}{;}
+\addtolength{\bibsep}{-1.5ex}
 %--------------- Source Code ---------------
 \endinput 

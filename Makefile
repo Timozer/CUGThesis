@@ -7,9 +7,9 @@ target: $(OBJECTS)
 
 demo.pdf: demo.tex *.sty *.cls *.tex Makefile
 	$(TEX) -shell-escape $<
-	#$(BIBTEX) demo.aux
-	#$(TEX) -shell-escape $<
-	#$(TEX) -shell-escape $<
+	$(BIBTEX) demo.aux
+	$(TEX) -shell-escape $<
+	$(TEX) -shell-escape $<
 	$(OPEN) $@
 
 
