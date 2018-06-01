@@ -351,7 +351,7 @@
 
 \newcommand{\cug@make@abstract}{%
     \cleardoublepage 
-    \AppChapter{摘\quad 要}{Abstract (in Chinese)}
+    \AppChapter{摘\quad 要}
     \setcounter{page}{1}
     {\cug@xiaosi
     \the\cug@abstract 
@@ -363,7 +363,7 @@
 }
 \newcommand{\cug@make@enabstract}{%
     \cleardoublepage 
-    \AppChapter{Abstract}{Abstract (in Chinese)}
+    \AppChapter{Abstract}
     {\cug@xiaosi
     \the\cug@enabstract 
     }
