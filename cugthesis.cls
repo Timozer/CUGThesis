@@ -57,6 +57,13 @@
         format={\centering\sffamily\bfseries\cug@sanhao},
         beforeskip={2ex},
         afterskip={2ex},
+        lofskip={0pt},
+        lotskip={0pt},
+% https://tex.stackexchange.com/questions/121879/remove-spacing-between-per-chapter-figures-in-lof
+% list of figures and list of tables reduce the space between chapters
+% for ctexbook class, we can use lofskip lotskip to set the space
+% \patchcmd{<cmd>}{<search>}{<replace>}{<succes>}{<failure>}
+%\patchcmd{\@chapter}{\CTEX@addloflotskip{chapter}}{}{}{} % lof lot
     },
     section={%
         afterindent=true,
