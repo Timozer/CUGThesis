@@ -192,22 +192,11 @@
     \end{tabular}
 }
 \newcommand{\cug@info@entable}{%
-    \begin{minipage}{.45\textwidth}
-        \begin{flushright}
-            \makebox[.46\textwidth][s]{}\\
-            \cug@degree@en Candidate: \\
-            \cug@info@entable@majorname: \\
-            Supervisor:
-        \end{flushright}
-    \end{minipage}%
-    \begin{minipage}{.54\textwidth}
-        \begin{flushleft}
-            \makebox[.46\textwidth][s]{}\\
-            \cug@enauthor \\
-            \cug@enmajor \\
-            \cug@supervisor 
-        \end{flushleft}
-    \end{minipage}
+    \begin{tabular}{>{\raggedleft}p{.4\textwidth}p{.45\textwidth}p{.15\textwidth}}
+        \cug@degree@en\ Candidate:\, & \cug@enauthor &\\
+        \cug@info@entable@majorname:\,& \cug@enmajor &\\
+        Supervisor:\,& \cug@supervisor &
+    \end{tabular}
 }
 
 %--------------- Title Page ----------------
