@@ -40,7 +40,7 @@
 \RequirePackage{graphicx}
 \RequirePackage[labelformat=simple]{subcaption}
 
-\RequirePackage{array, longtable, makecell, tabu, booktabs}
+\RequirePackage{array, longtable, makecell, tabu, booktabs, multirow}
 
 \RequirePackage{enumitem} % 修改列表样式
 
@@ -134,6 +134,12 @@
     \teacher{#1}
     \supervisor{#2}
 }
+\cug@define@term{teachert}
+\cug@define@term{supervisort}
+\newcommand{\cugthesisteachertwo}[2]{%
+    \teachert{#1}
+    \supervisort{#2}
+}
 \cug@define@term{educatingunit}
 \ifcug@masterpronofulltime
     \cug@define@term{corporatementor}
@@ -185,6 +191,10 @@
         \cug@info@table@item{姓名}{\@author}
         \cug@info@table@item{\cug@info@table@majorname}{\cug@major}
         \cug@info@table@item{指导教师}{\cug@teacher}
+        \ifx\cug@teachert\empty
+        \else
+            \cug@info@table@item{\phantom{指导教师}}{\cug@teachert}
+        \fi
         \ifcug@masterpronofulltime
             \cug@info@table@item{企业导师}{\cug@corporatementor}
         \fi
@@ -195,7 +205,7 @@
     \begin{tabular}{>{\raggedleft}p{.4\textwidth}p{.45\textwidth}p{.15\textwidth}}
         \cug@degree@en\ Candidate:\, & \cug@enauthor &\\
         \cug@info@entable@majorname:\,& \cug@enmajor &\\
-        Supervisor:\,& \cug@supervisor &
+        Supervisor:\,& \ifx\cug@supervisort\empty\cug@supervisor\else\multirow[t]{2}{8em}{\cug@supervisor \\\cug@supervisort} &
     \end{tabular}
 }
 
@@ -254,24 +264,24 @@
     \ifnum#1=1
     \@extrapages@type{原创性声明}
     \@extrapages@content{
-        本人郑重声明: 本人所呈交的\cug@degree@cn{}士学位论文《 \@title 》, 是本人在导师的指导下, 
-        在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果. 
-        论文中除已注明部分外不包含他人已发表或撰写过的研究成果, 
-        对论文的完成提供过帮助的有关人员已在文中说明并致以谢意. 
+        本人郑重声明：本人所呈交的\cug@degree@cn{}士学位论文《 \@title 》，是本人在导师的指导下，
+        在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果。
+        论文中除已注明部分外不包含他人已发表或撰写过的研究成果，
+        对论文的完成提供过帮助的有关人员已在文中说明并致以谢意。 
         \\
-        \indent 本人所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范, 没有侵权行为, 
-        并愿意承担由此而产生的法律责任和法律后果. 
+        \indent 本人所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范，没有侵权行为，
+        并愿意承担由此而产生的法律责任和法律后果。
     }
     \@extrapages@signature{学位论文作者签名}
     \else 
         \ifnum#1=2
             \@extrapages@type{导师承诺书}
             \@extrapages@content{
-                 本人郑重承诺: 本人所指导的\@author{}学位论文《 \@title{} 》是在本人的指导下, 
-                研究生在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果, 论文由研究生独立完成. 
+                 本人郑重承诺：本人所指导的\@author{}学位论文《 \@title{} 》是在本人的指导下，
+                研究生在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果，论文由研究生独立完成。 
                 \\
-               \indent 研究生所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范, 没有侵权行为, 
-                并愿意承担由此而产生的与导师相关的责任和后果. 
+               \indent 研究生所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范，没有侵权行为， 
+                并愿意承担由此而产生的与导师相关的责任和后果。 
             }
             \@extrapages@signature{指导老师（签字）}
         \else 
@@ -279,10 +289,10 @@
                 \@extrapages@type{使用授权书}
                 \@extrapages@content{
                     本人授权中国地质大学（武汉）可采用影印、缩印、数字化或其它复制手段保存本学位论文；
-                    学校可向国家有关部门或机构送交本学位论文的电子版全文, 编入有关数据库进行检索、
-                    下载及文献传递服务；同意在校园网内提供全文浏览和下载服务. 
+                    学校可向国家有关部门或机构送交本学位论文的电子版全文，编入有关数据库进行检索、
+                    下载及文献传递服务；同意在校园网内提供全文浏览和下载服务。 
                     \\
-                   \indent 涉密论文解密后适用于本授权书. 
+                   \indent 涉密论文解密后适用于本授权书。
                 }
                 \@extrapages@signature{学位论文作者签名}
             \else
@@ -305,7 +315,7 @@
         \cug@sihao
         {\cug@@extrapages@signature: \makebox[4em][l]{}}
         \\
-        {\makebox[3em][s]{日期:} ~\makebox[9em][r]{\qquad 年 \quad 月 \quad 日}}
+        {\makebox[3.35em][s]{日期:}~\makebox[9em][r]{\qquad 年 \quad 月 \quad 日}}
     \end{flushright}
     \clearpage
     \thispagestyle{empty}
