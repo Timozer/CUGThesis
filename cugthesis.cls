@@ -184,21 +184,21 @@
 \fi
 
 \newcommand{\cug@info@table@item}[2]{
-    \makebox[6.5em][s]{#1:} & \makebox[8em][l]{#2} & \\
+    \makebox[6.5em][s]{#1} & \makebox[8em][l]{#2} & \\
 }
 \newcommand{\cug@info@table}{%
     \begin{tabular}{clc}
-        \cug@info@table@item{姓名}{\@author}
-        \cug@info@table@item{\cug@info@table@majorname}{\cug@major}
-        \cug@info@table@item{指导教师}{\cug@teacher}
+        \cug@info@table@item{姓名:}{\@author}
+        \cug@info@table@item{\cug@info@table@majorname:}{\cug@major}
+        \cug@info@table@item{指导教师:}{\cug@teacher}
         \ifx\cug@teachert\empty
         \else
             \cug@info@table@item{\phantom{指导教师}}{\cug@teachert}
         \fi
         \ifcug@masterpronofulltime
-            \cug@info@table@item{企业导师}{\cug@corporatementor}
+            \cug@info@table@item{企业导师:}{\cug@corporatementor}
         \fi
-        \cug@info@table@item{培养单位}{\cug@educatingunit}
+        \cug@info@table@item{培养单位:}{\cug@educatingunit}
     \end{tabular}
 }
 \newcommand{\cug@info@entable}{%
