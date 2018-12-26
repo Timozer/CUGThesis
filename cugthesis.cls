@@ -301,7 +301,6 @@
         \fi
     \fi
     \cleardoublepage
-    \thispagestyle{empty}
     \vskip \baselineskip
     \ifcug@bachelor
         {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）本科生学位论文\cug@@extrapages@type}}
@@ -318,7 +317,6 @@
         {\makebox[3.35em][s]{日期:}~\makebox[9em][r]{\qquad 年 \quad 月 \quad 日}}
     \end{flushright}
     \clearpage
-    \thispagestyle{empty}
 }
 \newcounter{cug@authorcv@section}
 \newcommand{\cugauthorcvsection}[1]{%
@@ -330,7 +328,6 @@
 }
 \newcommand{\cug@make@authorcv}{%
     \cleardoublepage
-    \thispagestyle{empty}
     \leavevmode 
     \vspace*{\baselineskip}
     {\hfill{\cug@sanhao\sffamily\bfseries 作者简介}\hfill}
@@ -339,7 +336,6 @@
         \input{authorcv}
      \setlength{\baselineskip}{\oldbaselineskip}}
     \clearpage
-    \thispagestyle{empty}
 }
 
 \newtoks\cug@abstract
@@ -417,6 +413,11 @@
     \renewcommand{\headrulewidth}{0.4pt}
 }
 %------ 重新定义 frontmatter, mainmatter, backmatter
+\newcommand{\emptymatter}{%
+    \clearpage
+    \pagestyle{empty}
+}
+
 \renewcommand{\frontmatter}{%
     \clearpage
     \pagenumbering{Roman}
@@ -489,6 +490,7 @@
 }
 \newcommand{\makefrontpages}{%
     \maketitle
+    \emptymatter 
     \makeextrapages 
     \makeauthorcv
     \frontmatter 
