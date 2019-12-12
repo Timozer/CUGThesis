@@ -19,12 +19,16 @@
 \newif\ifcug@masterpronofulltime\cug@masterpronofulltimefalse
 \newif\ifcug@bachelor\cug@bachelorfalse
 
+\newif\ifcug@bib@style@sec\cug@bib@style@secfalse
+
 \DeclareOption{doctor}{\cug@doctortrue\cug@masterfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
 \DeclareOption{master}{\cug@mastertrue\cug@doctorfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
 \DeclareOption{masterprofulltime}{\cug@masterprofulltimetrue\cug@doctorfalse\cug@masterfalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
 \DeclareOption{masterpronofulltime}{\cug@masterpronofulltimetrue\cug@doctorfalse\cug@masterfalse\cug@masterprofulltimefalse\cug@bachelorfalse}
 \DeclareOption{bachelor}{\cug@bachelortrue\cug@doctorfalse\cug@masterfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse}
 %\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}} % I don't want you to pass options to the ctexbook class
+
+\DeclareOption{bibsec}{\cug@bib@style@sectrue}
 \ProcessOptions\relax
 
 \LoadClass[ scheme=chinese, heading=true, %nofonts,
@@ -523,7 +527,11 @@
 \NewDocumentCommand{\cugthesis}{}{CUGThesis}
 % 参考文献
 \RequirePackage[sort&compress]{natbib}
+\ifcug@bib@style@sec
+\bibliographystyle{gbt7714-2005-sec}
+\else
 \bibliographystyle{gbt7714-2005}
+\fi
 \bibpunct{[}{]}{;}{s}{}{;}
 \addtolength{\bibsep}{-1.5ex}
 %--------------- Source Code ---------------
