@@ -144,6 +144,86 @@
 
 \chapter{使用方法}
 
+\section{在线编译器 Overleaf 使用方法}
+\label{sec:overleaf_usage}
+
+\LaTeXe{} 文档需要使用编译器进行编译, 进而输出 PDF文档, 若是自己不想在电脑上安装
+对应的编译器, 则可以使用在线编译器 Overleaf 来进行编译.
+
+首先, 需要将模板文件下载到本地, 具体下载方法参见第\ref{sub:mo_ban_xia_zai_} 节的
+内容.
+
+然后打开 Overleaf 网站注册一个账号, 如图\ref{fig:overleaf_usage_1}所示,
+进入首页, 点击右边的注册按钮.
+
+\begin{tfig}{Overleaf 注册账号1}{fig:overleaf_usage_1}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/2.png}
+\end{tfig}
+
+在接下来的页面中输入邮箱和密码, 点击绿色按钮进行注册,
+如图\ref{fig:overleaf_usage_2} 所示.
+
+\begin{tfig}{Overleaf 注册账号2}{fig:overleaf_usage_2}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/3.png}
+\end{tfig}
+
+注册完成后, 在接下来的页面中点击创建一个项目, 选择上传项目,
+如图\ref{fig:overleaf_usage_3} 所示.
+
+\begin{tfig}{Overleaf  创建项目1}{fig:overleaf_usage_3}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/5.png}
+\end{tfig}
+
+在弹出的窗口中点击绿色按钮, 选择之前下载的模板文件,
+如图\ref{fig:overleaf_usage_4},\ref{fig:overleaf_usage_5}所示.
+
+\begin{tfig}{Overleaf  创建项目2}{fig:overleaf_usage_4}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/6.png}
+\end{tfig}
+
+\begin{tfig}{Overleaf  创建项目3}{fig:overleaf_usage_5}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/7.png}
+\end{tfig}
+
+点击打开, 进入上传页面, 如图\ref{fig:overleaf_usage_6}所示, 静静等待上传完毕.
+
+\begin{tfig}{Overleaf  创建项目4}{fig:overleaf_usage_6}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/8.png}
+\end{tfig}
+
+上传完成后, 进入项目页面, 如图\ref{fig:overleaf_usage_7} 所示. 在上传完成后,
+Overleaf 会进行一次编译尝试, 因为其默认编译方式与本模板不匹配,
+所以如右侧窗口显示, 有很多错误. 这是点击图中左上角的 Menu 按钮,
+对本项目进行设置. 如图\ref{fig:overleaf_usage_8}所示, 将编译器设置为 xelatex, 将
+主文档设置为 demo.tex .
+
+\begin{tfig}{Overleaf   项目设置1}{fig:overleaf_usage_7}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/9.png}
+\end{tfig}
+
+\begin{tfig}{Overleaf  项目设置 2}{fig:overleaf_usage_8}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/10.png}
+\end{tfig}
+
+对项目设置完毕后, 接下来点击左侧文件浏览器中的 demo.tex 文件, 然后点击右侧重新
+编译, 如图\ref{fig:overleaf_usage_9} 所示.
+
+\begin{tfig}{Overleaf   编译}{fig:overleaf_usage_9}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/11.png}
+\end{tfig}
+
+静静等待一段时间后, 编译成功, 如图\ref{fig:overleaf_usage_10}所示.
+
+\begin{tfig}{Overleaf   编译结果}{fig:overleaf_usage_10}
+    \includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/12.png}
+\end{tfig}
+
+至此, 即可开始自己的写论文之旅了.
+
+如果论文创作者不担心自己的成果泄露的话, 可以使用 Overleaf 来写自己的毕业设计.
+
+注意: 因使用在线编译器导致的论文泄密, 本人概不负责.
+
 \section{系统要求}
 \label{sec:xi_tong_yao_qiu_}
 本模板是基于 \CTeX{} 宏集中的 ctexbook 文档类进行定制的. 所以如果要使用该模板, 你必须
@@ -615,6 +695,14 @@ Developed!
 2018年 3月19日 星期一 09时13分52秒 CST
 
 代码测试: \tilcode{\$~\dots~\$}
+
+\section{Versino 0.4}
+\label{sec:versino_0_4}
+
+2019-12-12 22:22
+
+添加在线编译器 overleaf 的使用方法.
+
 \backmatter{}
 \cugthesisacknowledgements
 
