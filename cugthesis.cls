@@ -209,7 +209,7 @@
     \begin{tabular}{>{\raggedleft}p{.4\textwidth}p{.45\textwidth}p{.15\textwidth}}
         \cug@degree@en\ Candidate:\, & \cug@enauthor &\\
         \cug@info@entable@majorname:\,& \cug@enmajor &\\
-        Supervisor:\,& \ifx\cug@supervisort\empty\cug@supervisor\else\multirow[t]{2}{8em}{\cug@supervisor \\\cug@supervisort} &
+        Supervisor:\,& \ifx\cug@supervisort\empty\cug@supervisor\else\multirow[t]{2}{8em}{\cug@supervisor \\\cug@supervisort}\fi &
     \end{tabular}
 }
 
