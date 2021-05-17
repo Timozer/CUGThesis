@@ -15,6 +15,7 @@
 
 \RequirePackage{etoolbox}
 \RequirePackage{xcolor}
+\RequirePackage{float}
 
 \NewDocumentCommand{\tilcode}{m}{\colorbox{lightgray!50}{\ttfamily\small #1}}
 \NewDocumentCommand{\cmd}{m}{\texttt{\small $\backslash$#1}}
@@ -22,6 +23,14 @@
 
 \NewDocumentEnvironment{ttab}{m m}{%
     \begin{table}[htbp]
+        \centering
+        \caption{#1}
+        \label{#2}
+    }{%
+    \end{table}
+}
+\NewDocumentEnvironment{Ttab}{m m}{%
+    \begin{table}[H]
         \centering
         \caption{#1}
         \label{#2}
@@ -36,6 +45,15 @@
         \label{#2}
     \end{figure}
 }
+\NewDocumentEnvironment{Tfig}{m m}{%
+    \begin{figure}[H]
+        \centering 
+    }{%
+        \caption{#1}
+        \label{#2}
+    \end{figure}
+}
+
 % for poems 
 \NewDocumentEnvironment{tpoem}{m m}{%
     \vskip.8ex

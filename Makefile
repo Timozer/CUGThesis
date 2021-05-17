@@ -2,13 +2,13 @@ TEX = xelatex
 BIBTEX = bibtex 
 OPEN = open
 
-OBJECTS = demo.pdf
+OBJECTS = example.pdf
 target: $(OBJECTS)
 
-demo.pdf: demo.tex *.sty *.cls *.tex Makefile
+example.pdf: example.tex *.sty *.cls *.tex Makefile
 	$(TEX) -shell-escape $<
-	$(BIBTEX) demo.aux
-	$(TEX) -shell-escape $<
+	#$(BIBTEX) example.aux
+	#$(TEX) -shell-escape $<
 	$(TEX) -shell-escape $<
 	$(OPEN) $@
 

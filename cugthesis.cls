@@ -32,7 +32,7 @@
 \ProcessOptions\relax
 
 \LoadClass[ scheme=chinese, heading=true, %nofonts,
-    12pt, utf8, a4paper, punct, fancyhdr, twoside, openright,
+    12pt, utf8, a4paper, punct, fancyhdr, twoside, openany,
     amstex]{ctexbook}
 
 %%%%%%%%%%%%%%%%%%%%%%% Load Packages %%%%%%%%%%%%%%%%%%%%%%
@@ -85,7 +85,7 @@
     },
     subsubsection={%
         afterindent=true,
-        format={\flushleft\sffamily\bfseries\cug@xiaosi},
+        format={\flushleft\sffamily\cug@xiaosi},
         beforeskip={1ex},
         afterskip={1ex},
     },
@@ -261,31 +261,34 @@
     \clearpage
     \thispagestyle{empty}
 }
+\newlength{\oldbaselineskip}
 \newcommand{\cug@make@extrapages}[1]{
     \cug@define@term{@extrapages@type}
     \newtoks\@extrapages@content 
     \cug@define@term{@extrapages@signature}
     \ifnum#1=1
-    \@extrapages@type{原创性声明}
-    \@extrapages@content{
-        本人郑重声明：本人所呈交的\cug@degree@cn{}学位论文《 \@title 》，是本人在导师的指导下，
-        在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果。
-        论文中除已注明部分外不包含他人已发表或撰写过的研究成果，
-        对论文的完成提供过帮助的有关人员已在文中说明并致以谢意。 
-        \\
-        \indent 本人所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范，没有侵权行为，
-        并愿意承担由此而产生的法律责任和法律后果。
-    }
-    \@extrapages@signature{学位论文作者签名}
+        \@extrapages@type{原创性声明}
+        \@extrapages@content{ 
+            本人郑重声明：本人所呈交的\cug@degree@cn{}学位论文《 \@title 》，是本人在导师的指导下，
+            在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果。
+            论文中除已注明部分外不包含他人已发表或撰写过的研究成果，
+            对论文的完成提供过帮助的有关人员已在文中说明并致以谢意。 
+
+            本人所呈交的 \cug@degree@cn{} 学位论文没有违反学术道德和学术规范，没有侵权行为，
+            并愿意承担由此而产生的法律责任和法律后果。
+
+        }
+        \@extrapages@signature{学位论文作者签名}
     \else 
         \ifnum#1=2
             \@extrapages@type{导师承诺书}
             \@extrapages@content{
-                 本人郑重承诺：本人所指导的\cug@degree@cn{}学位论文《 \@title{} 》是在本人的指导下，
+                本人郑重承诺：本人所指导的\cug@degree@cn{}学位论文《 \@title{} 》是在本人的指导下，
                 研究生在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果，论文由研究生独立完成。 
-                \\
-               \indent 研究生所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范，没有侵权行为， 
+
+                研究生所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范，没有侵权行为， 
                 并愿意承担由此而产生的与导师相关的责任和后果。 
+
             }
             \@extrapages@signature{指导老师（签字）}
         \else 
@@ -294,9 +297,10 @@
                 \@extrapages@content{
                     本人授权中国地质大学（武汉）可采用影印、缩印、数字化或其它复制手段保存本学位论文；
                     学校可向国家有关部门或机构送交本学位论文的电子版全文，编入有关数据库进行检索、
-                    下载及文献传递服务；同意在校园网内提供全文浏览和下载服务。 
-                    \\
-                   \indent 涉密论文解密后适用于本授权书。
+                    下载及文献传递服务；同意在校园网内提供全文浏览和下载服务。
+
+                    涉密论文解密后适用于本授权书。
+
                 }
                 \@extrapages@signature{学位论文作者签名}
             \else
@@ -307,12 +311,12 @@
     \cleardoublepage
     \vskip \baselineskip
     \ifcug@bachelor
-        {\sffamily\cug@sanhao{中国地质大学（武汉）本科生学位论文\cug@@extrapages@type}}
+        {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）本科生学位论文\cug@@extrapages@type}}
     \else
-        {\sffamily\cug@sanhao{中国地质大学（武汉）研究生学位论文\cug@@extrapages@type}}
+        {\sffamily\bfseries \cug@sanhao{中国地质大学（武汉）研究生学位论文\cug@@extrapages@type}}
     \fi
-    \vskip 1.5\baselineskip
-    {\cug@sihao{\the\@extrapages@content}}
+    \vskip 1.5\baselineskip%%
+    { \cug@sihao \the\@extrapages@content }
     \vskip 1.5\baselineskip
     \begin{flushright}
         \cug@sihao
@@ -328,7 +332,7 @@
     {\par \sffamily\bfseries \noindent \chinese{cug@authorcv@section}、 #1}\par
 }
 \newcommand{\cugauthorcvinfoitem}[3]{%
-    \hspace{2.6em} \makebox[3em][r]{#1} -- \makebox[3em][l]{#2}\quad  #3; \hfill\par 
+    \hspace{2.6em} \makebox[3em][r]{#1} -- \makebox[3em][l]{#2}\quad  #3；\hfill\par 
 }
 \newcommand{\cug@make@authorcv}{%
     \cleardoublepage
@@ -336,10 +340,10 @@
     \vspace*{\baselineskip}
     {\hfill{\cug@sanhao\sffamily\bfseries 作者简介}\hfill}
     \vspace*{\baselineskip}
-    {\newlength{\oldbaselineskip}\setlength{\oldbaselineskip}{\baselineskip}\setlength{\baselineskip}{20pt}
+    {\setlength{\oldbaselineskip}{\baselineskip}\setlength{\baselineskip}{20pt}
         \input{authorcv}
      \setlength{\baselineskip}{\oldbaselineskip}}
-    \clearpage
+    \cleardoublepage
 }
 
 \newtoks\cug@abstract
@@ -357,19 +361,19 @@
 
 \newcommand{\cug@make@abstract}{%
     \cleardoublepage 
-    \AppChapter{摘\quad 要}
+    \AppChapterNoToc{摘\quad 要}
     \setcounter{page}{1}
     {\cug@xiaosi
     \the\cug@abstract 
     }
     \vskip .5\baselineskip 
     \noindent
-    {\cug@xiaosi {\bfseries 关键词:}\hskip0.5em \the\cug@keywords}
+    {\cug@xiaosi {\bfseries 关键词：}\hskip0.5em \the\cug@keywords}
     \clearpage 
 }
 \newcommand{\cug@make@enabstract}{%
     \cleardoublepage 
-    \AppChapter{Abstract}
+    \AppChapterNoToc{Abstract}
     {\cug@xiaosi
     \the\cug@enabstract 
     }
@@ -387,6 +391,7 @@
 \setlength{\cftchapindent}{0em}
 \setlength{\cftsecindent}{1.2\ccwd}
 \setlength{\cftsubsecindent}{2.5\ccwd}
+\setlength{\cftsubsubsecindent}{3.8\ccwd}
 \renewcommand{\cftchapfont}{\cug@sihao}
 \renewcommand{\cftsecfont}{\cug@xiaosi}
 \renewcommand{\cftsubsecfont}{\cug@xiaosi}
@@ -411,7 +416,7 @@
 \fancypagestyle{cug@pagestyle}{%
     \pagestyle{fancy}
     \fancyhf{}
-    \fancyhead[CO]{\cug@wuhao 中国地质大学\cug@@titlelogo}
+    \fancyhead[CO]{\cug@wuhao 中国地质大学（武汉）\cug@@titlelogo}
     \fancyhead[RO, LE]{\cug@wuhao \thepage}
     \fancyhead[CE]{\cug@wuhao \@author: \@title}
     \renewcommand{\headrulewidth}{0.4pt}
@@ -446,6 +451,10 @@
     \chapter*{#1}
 }
 
+\newcommand{\AppChapterNoToc}[1]{%
+    \phantomsection
+    \chapter*{#1}
+}
 \newcommand{\cugthesisacknowledgements}{%
     \phantomsection
     \chapter{致谢}
@@ -500,10 +509,16 @@
     \frontmatter 
     \makeabstract 
     \tableofcontents 
-    \listoffigures
-    \addcontentsline{toc}{chapter}{插 \quad 图}
-    \listoftables 
-    \addcontentsline{toc}{chapter}{表 \quad 格}
+    {
+        \listoffigures 
+        \addcontentsline{toc}{chapter}{插 \quad 图}
+        \let\cleardoublepage\relax
+        \let\clearpage\relax
+        \listoftables
+        \addcontentsline{toc}{chapter}{表 \quad 格}
+    }
+    %\listoffigures
+    %\listoftables 
     \clearpage 
     \mainmatter 
 }
@@ -526,13 +541,14 @@
 % Logo
 \NewDocumentCommand{\cugthesis}{}{CUGThesis}
 % 参考文献
+%\RequirePackage[super, sort&compress]{gbt7714}
 \RequirePackage[sort&compress]{natbib}
 \ifcug@bib@style@sec
 \bibliographystyle{gbt7714-2005-sec}
 \else
 \bibliographystyle{gbt7714-2005}
 \fi
-\bibpunct{[}{]}{;}{s}{}{;}
+\bibpunct{[}{]}{,}{s}{}{;}
 \addtolength{\bibsep}{-1.5ex}
 %--------------- Source Code ---------------
 \endinput 
