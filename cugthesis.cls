@@ -21,6 +21,9 @@
 
 \newif\ifcug@bib@style@sec\cug@bib@style@secfalse
 
+\newif\ifcug@toc@fig@show\cug@toc@fig@showfalse
+\newif\ifcug@toc@tab@show\cug@toc@tab@showfalse
+
 \DeclareOption{doctor}{\cug@doctortrue\cug@masterfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
 \DeclareOption{master}{\cug@mastertrue\cug@doctorfalse\cug@masterprofulltimefalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
 \DeclareOption{masterprofulltime}{\cug@masterprofulltimetrue\cug@doctorfalse\cug@masterfalse\cug@masterpronofulltimefalse\cug@bachelorfalse}
@@ -29,6 +32,9 @@
 %\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}} % I don't want you to pass options to the ctexbook class
 
 \DeclareOption{bibsec}{\cug@bib@style@sectrue}
+
+\DeclareOption{figtoc}{\cug@toc@fig@showtrue}
+\DeclareOption{tabtoc}{\cug@toc@tab@showtrue}
 \ProcessOptions\relax
 
 \LoadClass[ scheme=chinese, heading=true, %nofonts,
@@ -361,8 +367,10 @@
 
 \newcommand{\cug@make@abstract}{%
     \cleardoublepage 
-    \AppChapterNoToc{摘\quad 要}
-    \setcounter{page}{1}
+    \vspace*{2ex}%
+    \begin{center}
+    {\sffamily\bfseries\cug@sanhao 摘\quad 要}
+    \end{center}\par
     {\cug@xiaosi
     \the\cug@abstract 
     }
@@ -373,7 +381,10 @@
 }
 \newcommand{\cug@make@enabstract}{%
     \cleardoublepage 
-    \AppChapterNoToc{Abstract}
+    \vspace*{2ex}%
+    \begin{center}
+    {\sffamily\bfseries\cug@sanhao Abstract}
+    \end{center}\par
     {\cug@xiaosi
     \the\cug@enabstract 
     }
@@ -384,7 +395,7 @@
 }
 %%%%%%%%%%%%%%%% List of Contents Format %%%%%%%%%%%%%%%%%%
 \RequirePackage[titles]{tocloft}
-\tocloftpagestyle{cug@pagestyle}
+\tocloftpagestyle{empty}
 \setlength{\cftbeforechapskip}{0pt}
 \setlength{\cftbeforesecskip}{0pt}
 \setlength{\cftbeforesubsecskip}{0pt}
@@ -413,10 +424,18 @@
           \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
             \do\Y\do\Z\do\*\do\-\do\~\do\'\do\"\do\-}
 
+\fancypagestyle{cug@frontmatter}{%
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[CO]{}
+    \fancyhead[RO, LE]{\cug@wuhao \thepage}
+    \fancyhead[CE]{}
+    \renewcommand{\headrulewidth}{0.4pt}
+}
 \fancypagestyle{cug@pagestyle}{%
     \pagestyle{fancy}
     \fancyhf{}
-    \fancyhead[CO]{\cug@wuhao 中国地质大学（武汉）\cug@@titlelogo}
+    \fancyhead[CO]{\cug@wuhao 中国地质大学\cug@@titlelogo}
     \fancyhead[RO, LE]{\cug@wuhao \thepage}
     \fancyhead[CE]{\cug@wuhao \@author: \@title}
     \renewcommand{\headrulewidth}{0.4pt}
@@ -430,12 +449,13 @@
 \renewcommand{\frontmatter}{%
     \clearpage
     \pagenumbering{Roman}
-    \pagestyle{cug@pagestyle}
+	\pagestyle{cug@frontmatter}
 }
 \renewcommand{\mainmatter}{%
     \clearpage
     \setcounter{chapter}{0}
     \pagenumbering{arabic}
+    \pagestyle{cug@pagestyle}
 }
 
 \let\cug@appendix = \appendix
@@ -445,13 +465,13 @@
     \@mainmattertrue
 }
 
-\newcommand{\AppChapter}[1]{%
+\newcommand{\AddChapter}[1]{%
     \phantomsection
     \addcontentsline{toc}{chapter}{#1}
     \chapter*{#1}
 }
 
-\newcommand{\AppChapterNoToc}[1]{%
+\newcommand{\AddChapterNoToc}[1]{%
     \phantomsection
     \chapter*{#1}
 }
@@ -501,24 +521,105 @@
         \cug@make@enabstract
     \fi
 }
+
+\renewcommand{\@cftmaketoctitle}{%
+		\addpenalty\@secpenalty
+		\vspace*{2ex}%
+		\@cftpagestyle
+		{\interlinepenalty\@M
+		\begin{center}
+		{\sffamily\bfseries\cug@sanhao\contentsname}{\cftaftertoctitle}%
+		\end{center}
+		\cftmarktoc
+		\par\nobreak
+		\vskip 2ex
+		\@afterheading}%
+}
+
+\renewcommand{\tableofcontents}{%
+	\@cfttocstart
+	\par
+	\begingroup
+	\parindent\z@ \parskip\cftparskip
+	\@cftmaketoctitle
+	\if@cfttocbibind
+	\@cftdobibtoc
+	\fi
+	\@starttoc{toc}%
+	\endgroup
+	\@cfttocfinish
+}
+
+\renewcommand{\@cftmakeloftitle}{%
+		\addpenalty\@secpenalty
+		\vspace*{2ex}
+		\pagestyle{cug@frontmatter}
+		{\interlinepenalty\@M
+		\begin{center}
+		{\sffamily\bfseries\cug@sanhao\listfigurename}{\cftafterloftitle}
+		\end{center}
+		\cftmarklof
+		\par\nobreak
+		\vskip 2ex
+		\@afterheading}}
+\renewcommand{\listoffigures}{%
+		\@cfttocstart
+		\par
+		\begingroup
+		\parindent\z@ \parskip\cftparskip
+		\@cftmakeloftitle
+		\if@cfttocbibind
+		\@cftdobiblof
+		\fi
+		\@starttoc{lof}%
+		\endgroup
+		\@cfttocfinish}%
+\renewcommand{\@cftmakelottitle}{%
+		\addpenalty\@secpenalty
+		\vspace*{2ex}
+		\pagestyle{cug@frontmatter}
+		{\interlinepenalty\@M
+		\begin{center}
+		{\sffamily\bfseries\cug@sanhao\listtablename}{\cftafterlottitle}
+		\end{center}
+		\cftmarklot
+		\par\nobreak
+		\vskip 2ex
+		\@afterheading}}
+\renewcommand{\listoftables}{%
+		\@cfttocstart
+		\par
+		\begingroup
+		\parindent\z@ \parskip\cftparskip
+		\@cftmakelottitle
+		\if@cfttocbibind
+		\@cftdobiblot
+		\fi
+		\@starttoc{lot}%
+		\endgroup
+		\@cfttocfinish}%
+
 \newcommand{\makefrontpages}{%
     \maketitle
     \emptymatter 
     \makeextrapages 
     \makeauthorcv
-    \frontmatter 
     \makeabstract 
     \tableofcontents 
-    {
-        \listoffigures 
-        \addcontentsline{toc}{chapter}{插 \quad 图}
-        \let\cleardoublepage\relax
-        \let\clearpage\relax
-        \listoftables
-        \addcontentsline{toc}{chapter}{表 \quad 格}
-    }
-    %\listoffigures
-    %\listoftables 
+    \thispagestyle{empty}
+    \frontmatter 
+        \ifcug@toc@fig@show
+    	    \listoffigures 
+	        \addcontentsline{toc}{chapter}{插 \quad 图}
+            \ifcug@toc@tab@show
+		        \let\cleardoublepage\relax
+		        \let\clearpage\relax
+	        \fi
+        \fi
+	    \ifcug@toc@tab@show
+		    \listoftables
+		    \addcontentsline{toc}{chapter}{表 \quad 格}
+	    \fi
     \clearpage 
     \mainmatter 
 }
