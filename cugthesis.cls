@@ -427,10 +427,8 @@
 \fancypagestyle{cug@frontmatter}{%
     \pagestyle{fancy}
     \fancyhf{}
-    \fancyhead[CO]{}
-    \fancyhead[RO, LE]{\cug@wuhao \thepage}
-    \fancyhead[CE]{}
-    \renewcommand{\headrulewidth}{0.4pt}
+    \fancyfoot[C]{\cug@wuhao \thepage}
+    \renewcommand{\headrulewidth}{0pt}
 }
 \fancypagestyle{cug@pagestyle}{%
     \pagestyle{fancy}
