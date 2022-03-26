@@ -597,6 +597,8 @@
 		\endgroup
 		\@cfttocfinish}%
 
+\renewcommand \listfigurename{图目录}
+\renewcommand \listtablename{表目录}      
 \newcommand{\makefrontpages}{%
     \maketitle
     \emptymatter 
@@ -608,15 +610,18 @@
     \frontmatter 
         \ifcug@toc@fig@show
     	    \listoffigures 
-	        \addcontentsline{toc}{chapter}{插 \quad 图}
-            \ifcug@toc@tab@show
-		        \let\cleardoublepage\relax
-		        \let\clearpage\relax
-	        \fi
+	        \addcontentsline{toc}{chapter}{图目录}
+            % % open toc@tab and toc@fig both,
+            % % cause conficts
+            % \ifcug@toc@tab@show
+		    %     \let\cleardoublepage\relax
+		    %     \let\clearpage\relax
+	        % \fi
+            \clearpage
         \fi
 	    \ifcug@toc@tab@show
 		    \listoftables
-		    \addcontentsline{toc}{chapter}{表 \quad 格}
+		    \addcontentsline{toc}{chapter}{表目录}
 	    \fi
     \clearpage 
     \mainmatter 
