@@ -169,10 +169,20 @@
 \newcommand{\cug@degree@en}{Master}
 \newcommand{\cug@info@table@majorname}{学科专业}
 \newcommand{\cug@info@entable@majorname}{Major}
-\newcommand{\cug@degree@name@cn}{\cug@major}
-\newcommand{\cug@degree@name@en}{\cug@enmajor}
-\ifthenelse{\isempty{\cug@degree}}{}{\renewcommand{\cug@degree@name@cn}{\cug@degree}}
-\ifthenelse{\isempty{\cug@endegree}}{}{\renewcommand{\cug@degree@name@en}{\cug@endegree}}
+\newcommand{\cug@degree@name@cn}{%
+    \ifx\cug@degree\empty
+        \cug@major
+    \else
+        \cug@degree
+    \fi
+}
+\newcommand{\cug@degree@name@en}{
+    \ifx\cug@endegree\empty
+        \cug@enmajor
+    \else
+        \cug@endegree
+    \fi
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifcug@doctor
     \@titlelogo{博士学位论文}
