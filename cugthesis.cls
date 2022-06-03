@@ -138,6 +138,12 @@
     \major{#1}
     \enmajor{#2}
 }
+\cug@define@term{degree}
+\cug@define@term{endegree}
+\newcommand{\cugthesisdegree}[2]{%
+    \degree{#1}
+    \endegree{#2}
+}
 \cug@define@term{teacher}
 \cug@define@term{supervisor}
 \newcommand{\cugthesisteacher}[2]{%
@@ -163,32 +169,36 @@
 \newcommand{\cug@degree@en}{Master}
 \newcommand{\cug@info@table@majorname}{学科专业}
 \newcommand{\cug@info@entable@majorname}{Major}
+\newcommand{\cug@degree@name@cn}{\cug@major}
+\newcommand{\cug@degree@name@en}{\cug@enmajor}
+\ifthenelse{\isempty{\cug@degree}}{}{\renewcommand{\cug@degree@name@cn}{\cug@degree}}
+\ifthenelse{\isempty{\cug@endegree}}{}{\renewcommand{\cug@degree@name@en}{\cug@endegree}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifcug@doctor
     \@titlelogo{博士学位论文}
-    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Doctor Degree of \cug@enmajor} 
+    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Doctor Degree of \cug@degree@name@en} 
     \renewcommand{\cug@degree@cn}{博士}
     \renewcommand{\cug@degree@en}{Ph.D.}
 \fi
 \ifcug@master
     \@titlelogo{硕士学位论文}
-    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Master Degree of \cug@enmajor} 
+    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Master Degree of \cug@degree@name@en} 
 \fi
 \ifcug@masterprofulltime
     \@titlelogo{硕士专业学位论文（全日制）}
-    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Full-Time Master of Professional Degree of \\ \cug@enmajor} 
+    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Full-Time Master of Professional Degree of \\ \cug@degree@name@en} 
     \renewcommand{\cug@info@table@majorname}{专业学位类型}
     \renewcommand{\cug@info@entable@majorname}{Professional Degree Type}
 \fi
 \ifcug@masterpronofulltime
     \@titlelogo{硕士专业学位论文（非全日制）}
-    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Part-Time Master of Professional Degree of \\ \cug@enmajor} 
+    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Part-Time Master of Professional Degree of \\ \cug@degree@name@en} 
     \renewcommand{\cug@info@table@majorname}{专业学位类型}
     \renewcommand{\cug@info@entable@majorname}{Professional Degree Type}
 \fi
 \ifcug@bachelor
     \@titlelogo{学士学位论文}
-    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Bachelor Degree of \\ \cug@enmajor}
+    \@entitlelogo{A Dissertation Submitted to China University of Geosciences \\ For the Bachelor Degree of \\ \cug@degree@name@en}
     \renewcommand{\cug@degree@cn}{学士}
     \renewcommand{\cug@degree@en}{Bachelor}
 \fi
@@ -596,6 +606,8 @@
 		\@starttoc{lot}%
 		\endgroup
 		\@cfttocfinish}%
+
+\renewcommand{\contentsname}{目\quad 录}
 
 \newcommand{\makefrontpages}{%
     \maketitle

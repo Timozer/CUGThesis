@@ -21,125 +21,125 @@
     本文也可以作为中国地质大学（武汉）
     研究生学位论文 \LaTeXe{} 模板的示例文件,
     因为本文内容基本上遵照了《中国地质大学（武汉）研究生学位论文写作规范》（2015年版）.
-}{This article is a description of the \LaTeXe{} template for a graduate dissertation of the 
-                China University of Geosciences (Wuhan). This article mainly introduces
-                The template's writing background, writing purpose, usages, and a little introduction about 
-                how this template is written, of course there is also some useful utilities written by myself.
-                This article can also be used as a \LaTeXe{} model for graduate students of the China University of Geosciences (Wuhan).
-                the sample files for the board, because the content of this paper basically complies 
-                with the ``Chinese University of Geosciences (Wuhan) Graduate Dissertation Writing Regulations
-                Van ''(Version 2015).}
+}{This article is a description of the \LaTeXe{} template for a graduate dissertation of the
+    China University of Geosciences (Wuhan). This article mainly introduces
+    The template's writing background, writing purpose, usages, and a little introduction about
+    how this template is written, of course there is also some useful utilities written by myself.
+    This article can also be used as a \LaTeXe{} model for graduate students of the China University of Geosciences (Wuhan).
+    the sample files for the board, because the content of this paper basically complies
+    with the ``Chinese University of Geosciences (Wuhan) Graduate Dissertation Writing Regulations
+    Van ''(Version 2015).}
 
 \cugkeywords{中国地质大学; 学位论文;  \LaTeX{} 模板; 研究生}{CUGThesis; \LaTeXe{} Template}
 
-\makefrontpages 
+\makefrontpages
 
 \chapter{绪论}
 
 \section{背景}
 \label{sec:bei_jing_}
-    请允许我先简单介绍一下 \TeX{}, \LaTeX{}, 
-    因为可能很多人都没有听过这个软件, 自然就谈不上使用它了.
+请允许我先简单介绍一下 \TeX{}, \LaTeX{},
+因为可能很多人都没有听过这个软件, 自然就谈不上使用它了.
 \subsection{什么是 \TeX{}?}
 \label{sec:sub_what_is_tex_}
-    \TeX{} 是由Donald Knuth 编写的一个基于低级编程语言的电子排版系统, 它能够对文章
-    进行十分精美的排版.
+\TeX{} 是由Donald Knuth 编写的一个基于低级编程语言的电子排版系统, 它能够对文章
+进行十分精美的排版.
 
-    Donald Knuth 教授公开了他的全部源程序. \TeX{} 系统目前已经在数百种计算机系统上得到了
-    实现, 也就是说不论你是使用 Windows 系统, Linux 系统, 还是 Mac OSX 系统, 你都可以使用
-    \TeX{} 系统来对你写的文章进行排版. 
+Donald Knuth 教授公开了他的全部源程序. \TeX{} 系统目前已经在数百种计算机系统上得到了
+实现, 也就是说不论你是使用 Windows 系统, Linux 系统, 还是 Mac OSX 系统, 你都可以使用
+\TeX{} 系统来对你写的文章进行排版.
 
-    \TeX{} 的强大之处在于其能够对文档的排版进行非常精细的控制, 这可以使你能够对你文章的每一处
-    细节进行调整.
+\TeX{} 的强大之处在于其能够对文档的排版进行非常精细的控制, 这可以使你能够对你文章的每一处
+细节进行调整.
 
-    \TeX{} 系统具有很好的稳定性, 目前可以说几乎没什么 BUG. 如果你在使用该系统的过程中真的发现了
-    BUG, 你可以联系 Donald Knuth 教授提交反馈. 据说在报告 BUG 时你会获得一定的现金奖励.
+\TeX{} 系统具有很好的稳定性, 目前可以说几乎没什么 BUG. 如果你在使用该系统的过程中真的发现了
+BUG, 你可以联系 Donald Knuth 教授提交反馈. 据说在报告 BUG 时你会获得一定的现金奖励.
 \subsection{什么是 \LaTeX{}?}
 \label{sec:sub_what_is_latex_}
-    \LaTeX{} 是由 Leslie Lamport 开发的当今世界上最流行和使用最广泛的 \TeX{} 宏集. 它构筑在 PlainTeX
-    的基础上, 并加进了很多的功能以使使用者可以更为方便的使用 \TeX{} 的功能. 因此, 即使使用者并不是
-    很了解 \TeX{}, 也可以在短时间内生成高质量的文档. 对于复杂的数学公式, \LaTeX{} 的表现非常出色.
+\LaTeX{} 是由 Leslie Lamport 开发的当今世界上最流行和使用最广泛的 \TeX{} 宏集. 它构筑在 PlainTeX
+的基础上, 并加进了很多的功能以使使用者可以更为方便的使用 \TeX{} 的功能. 因此, 即使使用者并不是
+很了解 \TeX{}, 也可以在短时间内生成高质量的文档. 对于复杂的数学公式, \LaTeX{} 的表现非常出色.
 
 \subsection{\LaTeX{} 的优缺点}
 \label{sec:sub_latex_advantages_disabvantages_}
-缺点: 
+缺点:
 \begin{itemize}
-    \item 一般来说是不能在输入文章的同时看到最终的输出效果, 但是将文章用 \LaTeX{}编译之后, 可以在屏幕上预览最终的输出效果的; 
-    \item 尽管在预先定义好的版面中可以调节一些参数, 设计全新的版面还是很困难的, 需要耗费大量的时间（这正是我要做的, 你不用担心）; 
-    \item 需要掌握一些\LaTeX{}的排版命令（很少一部分）; 
-    \item \LaTeX{}不适合于排版非结构化的、无序的文档; 
+    \item 一般来说是不能在输入文章的同时看到最终的输出效果, 但是将文章用 \LaTeX{}编译之后, 可以在屏幕上预览最终的输出效果的;
+    \item 尽管在预先定义好的版面中可以调节一些参数, 设计全新的版面还是很困难的, 需要耗费大量的时间（这正是我要做的, 你不用担心）;
+    \item 需要掌握一些\LaTeX{}的排版命令（很少一部分）;
+    \item \LaTeX{}不适合于排版非结构化的、无序的文档;
 \end{itemize}
 
 优点:
 \begin{itemize}
-    \item 提供专业级的排版设计, 使你的文档看起来如同印刷好的一样; 
-    \item 可以更方便地排版数学公式; 
-    \item 用户仅仅需要掌握少数容易理解的, 用来说明文档逻辑结构的命令, 而无需对实际的页面设计做胡乱的修补; 
-    \item 可以很容易地生成脚注、索引、目录和参考文献等复杂的结构; 
-    \item 有大量免费的可添加宏包, 协助你完成许多基本的LaTeX未直接支持的排版任务; 例如, 支持在文档中插入PostScript图形的宏包和排版符合各类标准的参考文献的宏包等; 
-    \item \TeX{}作 \LaTeX{}的格式化引擎, 是免费软件并且具有极高的可移植性, 因此它几乎可以在任何硬件平台上运行; 
+    \item 提供专业级的排版设计, 使你的文档看起来如同印刷好的一样;
+    \item 可以更方便地排版数学公式;
+    \item 用户仅仅需要掌握少数容易理解的, 用来说明文档逻辑结构的命令, 而无需对实际的页面设计做胡乱的修补;
+    \item 可以很容易地生成脚注、索引、目录和参考文献等复杂的结构;
+    \item 有大量免费的可添加宏包, 协助你完成许多基本的LaTeX未直接支持的排版任务; 例如, 支持在文档中插入PostScript图形的宏包和排版符合各类标准的参考文献的宏包等;
+    \item \TeX{}作 \LaTeX{}的格式化引擎, 是免费软件并且具有极高的可移植性, 因此它几乎可以在任何硬件平台上运行;
 \end{itemize}
 \subsection{我为什么开发这个模板?}
 \subsubsection{原因一}
-    在\ref{sec:sub_what_is_tex_}节中我们提到了 \TeX{} 可以对文档进行非常精细的控制, 但由此也造成了
-    一个问题, 使用难度非常大, 导致了耗时耗力, 最后的效果还可能不是你想要的. 
+在\ref{sec:sub_what_is_tex_}节中我们提到了 \TeX{} 可以对文档进行非常精细的控制, 但由此也造成了
+一个问题, 使用难度非常大, 导致了耗时耗力, 最后的效果还可能不是你想要的.
 
-    基于上面的问题, \LaTeX{} 对 \TeX{} 进行了一个封装, 使得其变得相对来说简单易用了一些. 但是对于
-    从来没有使用过 \TeX{} 的人来说, 尤其是那些没有编程经验的人, 它还是非常的不友好. 
+基于上面的问题, \LaTeX{} 对 \TeX{} 进行了一个封装, 使得其变得相对来说简单易用了一些. 但是对于
+从来没有使用过 \TeX{} 的人来说, 尤其是那些没有编程经验的人, 它还是非常的不友好.
 
-    因此, 我想在这里继续对其进行一个封装, 做成一个中国地质大学（武汉）研究生学位论文写作模板, 使得
-    地大的研究生在写作过程中更容易一些, 把主要精力用在论文内容上, 而不是论文的排版格式. 
+因此, 我想在这里继续对其进行一个封装, 做成一个中国地质大学（武汉）研究生学位论文写作模板, 使得
+地大的研究生在写作过程中更容易一些, 把主要精力用在论文内容上, 而不是论文的排版格式.
 
 \subsubsection{原因二}
-    目前网上是有一份中国地质大学（武汉）研究生学位论文 \LaTeX{} 模板\footnote{\url{https://github.com/xujinlai/CUGThesis}}的, 
-    我看了一下, 作者是信息工程学院罗忠文教授的学生赵钱孙\footnote{我不知道这个是他的真名还是个
+目前网上是有一份中国地质大学（武汉）研究生学位论文 \LaTeX{} 模板\footnote{\url{https://github.com/xujinlai/CUGThesis}}的,
+我看了一下, 作者是信息工程学院罗忠文教授的学生赵钱孙\footnote{我不知道这个是他的真名还是个
     文档内的示例名字, 如有所知者烦请告知, 我会更正本文档中的内容, 我的联系方式在表\ref{tab:contact}中可以查到. }
-    于 2015 年 4 月份写的, 之后再没有再更新过. 可惜的是, 地大非常地不给面子, 于同年 12 月份修改了毕业论文的写作规范, 因此
-    他的模板中的内容过时了, 不再适合使用了.
-    
+于 2015 年 4 月份写的, 之后再没有再更新过. 可惜的是, 地大非常地不给面子, 于同年 12 月份修改了毕业论文的写作规范, 因此
+他的模板中的内容过时了, 不再适合使用了.
+
 \subsubsection{原因三}
-    在说原因三之前, 我首先要申明一下, 本文不是一个铁杆儿粉在专门提倡使用 \TeX{}, 也不是一个 Anti MSer 在
-    大力宣传 Anti MS. 
+在说原因三之前, 我首先要申明一下, 本文不是一个铁杆儿粉在专门提倡使用 \TeX{}, 也不是一个 Anti MSer 在
+大力宣传 Anti MS.
 
-    现在基本上每个人都在用 MS Word 做文字的排版, 尤其是高校学生, 经常要使用 MS Word 来写课程报告, 在毕业时候
-    甚至还需要用它来做毕业设计论文的排版. 
+现在基本上每个人都在用 MS Word 做文字的排版, 尤其是高校学生, 经常要使用 MS Word 来写课程报告, 在毕业时候
+甚至还需要用它来做毕业设计论文的排版.
 
-    但是, 我想问一句, 你使用了这么多年 Word, 你真的会用吗? 你真的会用吗? 你真的会用吗? 
+但是, 我想问一句, 你使用了这么多年 Word, 你真的会用吗? 你真的会用吗? 你真的会用吗?
 
-    仔细地思考一下我的问题. 我说的会用不包括 VisualBasicScript 编程, 这个毕竟是懂编程的人才会去研究的.
+仔细地思考一下我的问题. 我说的会用不包括 VisualBasicScript 编程, 这个毕竟是懂编程的人才会去研究的.
 
-    返回头来看看你曾经写过的课程报告, 你觉得怎么样? 是版式排的非常漂亮, 还是烂的像一坨屎, 根本不能给人看?
+返回头来看看你曾经写过的课程报告, 你觉得怎么样? 是版式排的非常漂亮, 还是烂的像一坨屎, 根本不能给人看?
 
-    你自己满意吗?
+你自己满意吗?
 
-    曾见过我的同学们是如何对课程报告进行排版的, 就是一个一个的字符调格式, 自动化工具不会用, 样式不会用,
-    最后调了半天也没调出什么效果来, 仅仅是让人能区分出章节标题和正文了.
+曾见过我的同学们是如何对课程报告进行排版的, 就是一个一个的字符调格式, 自动化工具不会用, 样式不会用,
+最后调了半天也没调出什么效果来, 仅仅是让人能区分出章节标题和正文了.
 
-    我在这里说这个问题, 是想说, 我不是讨厌 Word, 而是讨厌从不知样式为何物"的 Word 用户, 这些人排版非常糟糕,
-    ``不堪入目''.
+我在这里说这个问题, 是想说, 我不是讨厌 Word, 而是讨厌从不知样式为何物"的 Word 用户, 这些人排版非常糟糕,
+``不堪入目''.
 
-    还有一个就是用 Word 排版非常低效, 即使你懂得如何使用 Word, 我是说懂得使用自动化工具和样式.
+还有一个就是用 Word 排版非常低效, 即使你懂得如何使用 Word, 我是说懂得使用自动化工具和样式.
 
-    总之一句话, 使用 \TeX{} 可以在极短的时间内做出最好的排版效果, 省时省力.
+总之一句话, 使用 \TeX{} 可以在极短的时间内做出最好的排版效果, 省时省力.
 
 \section{目的}
 \label{sec:mu_di_}
-    在\ref{sec:sub_latex_advantages_disabvantages_}节中我们提到了 \LaTeX{} 设计全新的版面是困难的, 我想这点
-    不用你操心, 我这不正是在给你做这个论文写作模板嘛, 不需要你自己设计.
+在\ref{sec:sub_latex_advantages_disabvantages_}节中我们提到了 \LaTeX{} 设计全新的版面是困难的, 我想这点
+不用你操心, 我这不正是在给你做这个论文写作模板嘛, 不需要你自己设计.
 
-    还有就是需要掌握一些 \LaTeX{} 排版命令, 关于这一点, 是系统本身带来的问题. 而我的目的呢, 就是尽量简化这些
-    命令, 简化你的写作过程, 使你能够在使用相当少的命令的情况下得到相当漂亮的排版效果.
+还有就是需要掌握一些 \LaTeX{} 排版命令, 关于这一点, 是系统本身带来的问题. 而我的目的呢, 就是尽量简化这些
+命令, 简化你的写作过程, 使你能够在使用相当少的命令的情况下得到相当漂亮的排版效果.
 
 \section{问题反馈}
 \label{sec:wen_ti_fan_kui_}
-    本模板完全是由我一个人开发, 因此, 在写作过程中难免会出现各种错误, 或者是有些细节地方没有考虑到.
+本模板完全是由我一个人开发, 因此, 在写作过程中难免会出现各种错误, 或者是有些细节地方没有考虑到.
 
-    因此, 如果你在使用模板的过程中如果有疑问, 遇到困难, 可以询问我, 我的联系方式可以在表\ref{tab:contact}中查到.
-    
-    如果你在使用过程中遇到了 BUG, 影响到了你的使用体验, 我在这里先向你说一句抱歉.
-    然后诚恳地希望你可以给我一些反馈, 以便让该模板更好用. 当然, 如果您有一些建议, ideas 等, 也可以给我反馈. 
-    请将反馈提交到
-    \url{https://github.com/Timozer/CUGThesis/issues}中.
+因此, 如果你在使用模板的过程中如果有疑问, 遇到困难, 可以询问我, 我的联系方式可以在表\ref{tab:contact}中查到.
+
+如果你在使用过程中遇到了 BUG, 影响到了你的使用体验, 我在这里先向你说一句抱歉.
+然后诚恳地希望你可以给我一些反馈, 以便让该模板更好用. 当然, 如果您有一些建议, ideas 等, 也可以给我反馈.
+请将反馈提交到
+\url{https://github.com/Timozer/CUGThesis/issues}中.
 
 
 \chapter{使用方法}
@@ -157,38 +157,38 @@
 进入首页, 点击右边的注册按钮.
 
 %\begin{tfig}{Overleaf 注册账号1}{fig:overleaf_usage_1}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/2.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/2.png}
 %\end{tfig}
 
 在接下来的页面中输入邮箱和密码, 点击绿色按钮进行注册,
 如图\ref{fig:overleaf_usage_2} 所示.
 
 %\begin{tfig}{Overleaf 注册账号2}{fig:overleaf_usage_2}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/3.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/3.png}
 %\end{tfig}
 
 注册完成后, 在接下来的页面中点击创建一个项目, 选择上传项目,
 如图\ref{fig:overleaf_usage_3} 所示.
 
 %\begin{tfig}{Overleaf  创建项目1}{fig:overleaf_usage_3}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/5.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/5.png}
 %\end{tfig}
 
 在弹出的窗口中点击绿色按钮, 选择之前下载的模板文件,
 如图\ref{fig:overleaf_usage_4},\ref{fig:overleaf_usage_5}所示.
 
 %\begin{tfig}{Overleaf  创建项目2}{fig:overleaf_usage_4}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/6.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/6.png}
 %\end{tfig}
 
 %\begin{tfig}{Overleaf  创建项目3}{fig:overleaf_usage_5}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/7.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/7.png}
 %\end{tfig}
 
 点击打开, 进入上传页面, 如图\ref{fig:overleaf_usage_6}所示, 静静等待上传完毕.
 
 %\begin{tfig}{Overleaf  创建项目4}{fig:overleaf_usage_6}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/8.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/8.png}
 %\end{tfig}
 
 上传完成后, 进入项目页面, 如图\ref{fig:overleaf_usage_7} 所示. 在上传完成后,
@@ -198,24 +198,24 @@ Overleaf 会进行一次编译尝试, 因为其默认编译方式与本模板不
 主文档设置为 demo.tex .
 
 %\begin{tfig}{Overleaf   项目设置1}{fig:overleaf_usage_7}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/9.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/9.png}
 %\end{tfig}
 
 %\begin{tfig}{Overleaf  项目设置 2}{fig:overleaf_usage_8}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/10.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/10.png}
 %\end{tfig}
 
 对项目设置完毕后, 接下来点击左侧文件浏览器中的 demo.tex 文件, 然后点击右侧重新
 编译, 如图\ref{fig:overleaf_usage_9} 所示.
 
 %\begin{tfig}{Overleaf   编译}{fig:overleaf_usage_9}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/11.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/11.png}
 %\end{tfig}
 
 静静等待一段时间后, 编译成功, 如图\ref{fig:overleaf_usage_10}所示.
 
 %\begin{tfig}{Overleaf   编译结果}{fig:overleaf_usage_10}
-    %\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/12.png}
+%\includegraphics[width=.5\textwidth]{./imgs/overleaf_usage/12.png}
 %\end{tfig}
 
 至此, 即可开始自己的写论文之旅了.
@@ -233,7 +233,7 @@ Overleaf 会进行一次编译尝试, 因为其默认编译方式与本模板不
 中所示. 因此你的电脑还必须安装有这些宏包, Texlive 完全安装会自动安装这些宏包.
 \begin{ttab}{\cugthesis{} 自动加载的宏包}{tab:packagesautoload}
     \begin{tabular}{>{\bfseries}cl}
-        \toprule 
+        \toprule
         类别         & 宏包                                                         \\
         \midrule
         模板开发类   & xifthen, xparse, etoolbox                                    \\
@@ -257,9 +257,9 @@ Overleaf 会进行一次编译尝试, 因为其默认编译方式与本模板不
     \begin{tabular}{cl}
         \toprule
         系统类别 & 编译环境            \\
-        \midrule 
+        \midrule
         Mac OSX  & Texlive2017:xelatex \\
-        \bottomrule  
+        \bottomrule
     \end{tabular}
 \end{ttab}
 \section{下载安装}
@@ -303,7 +303,7 @@ git clone https://github.com/Timozer/CUGThesis.git
         LICENSE           & 协议文件                   \\
         README.md         & readme                     \\
         Makefile          & make 自动化工具所需文件    \\
-        \bottomrule 
+        \bottomrule
     \end{tabular}
 \end{ttab}
 
@@ -319,13 +319,13 @@ git clone https://github.com/Timozer/CUGThesis.git
 Mac 用户请使用 MacTex\footnote{\url{https://www.tug.org/mactex/}}.
 
 %\begin{tfig}{MacTeX 下载首页}{fig:mactexdownload}
-    %\includegraphics[width=\textwidth]{./imgs//mactexdownload.png}
+%\includegraphics[width=\textwidth]{./imgs//mactexdownload.png}
 %\end{tfig}
 
 点击图中红色标出的链接, 进入下一页, 如图\ref{fig:mactexpkg}.
 
 %\begin{tfig}{MacTeX pkg 下载}{fig:mactexpkg}
-    %\includegraphics[width=.6\textwidth]{./imgs/mactexpkg.png}
+%\includegraphics[width=.6\textwidth]{./imgs/mactexpkg.png}
 %\end{tfig}
 
 然后下载那个 pkg 安装包, 大约有 3.14 GB\@.
@@ -333,11 +333,11 @@ Mac 用户请使用 MacTex\footnote{\url{https://www.tug.org/mactex/}}.
 \label{sec:mo_ban_ji_ben_shi_yong_}
 要使用本模板, 您首先得具备基本的 \LaTeX{} 知识, 本模板的存在只是尽可能让你在
 具备很少的知识的情况下做出精美的排版. 如果您刚刚接触 \LaTeX{}, 建议您先学习一下
-相关的知识. 
+相关的知识.
 
 什么? 您说啥? 没时间?
 
-OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short Introduction to 
+OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short Introduction to
 \LaTeXe{} \cite{oetiker_not_2018} 这篇文档, 大概占用您 139 分钟. 如果您觉得英文
 读着费劲, 这里有一篇中文的《一份不太简短的 \LaTeXe{} 介绍》
 \footnote{\url{http://ctan.math.illinois.edu/info/lshort/chinese/lshort-zh-cn.pdf}}.
@@ -361,15 +361,15 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
 \begin{ttab}{模板选项}{tab:classoptiondegree}
     \begin{tabular}{ll}
         \toprule
-        文档选项            & 说明 \\
+        文档选项            & 说明                                         \\
         \midrule
-        doctor              & 博士 \\
-        master              & 硕士 \\
-        masterprofulltime   & 全日制专硕 \\
-        masterpronofulltime & 非全日制专硕 \\
-	    bibsec          & 第二种 bib style, 这种更符合中国地质大学要求         \\
-	    figtoc          & 显示图清单           \\
-	    tabtoc          & 显示表清单            \\
+        doctor              & 博士                                         \\
+        master              & 硕士                                         \\
+        masterprofulltime   & 全日制专硕                                   \\
+        masterpronofulltime & 非全日制专硕                                 \\
+        bibsec              & 第二种 bib style, 这种更符合中国地质大学要求 \\
+        figtoc              & 显示图清单                                   \\
+        tabtoc              & 显示表清单                                   \\
         \bottomrule
     \end{tabular}
 \end{ttab}
@@ -379,22 +379,23 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
     \documentclass[master]{cugthesis}
 \end{minted}
 
-在正确引入模板类后, 你就需要为你的论文添加一些相关信息了, 比如说论文题目, 论文作者, 
+在正确引入模板类后, 你就需要为你的论文添加一些相关信息了, 比如说论文题目, 论文作者,
 指导老师等.
 
 模板为你提供了几个命令用来设置这些, 相关命令如表\ref{tab:cugthesisinfocmds}所示.
 \begin{ttab}{论文相关信息命令}{tab:cugthesisinfocmds}
     \begin{tabular}{lll}
         \toprule
-        命令 & 作用 & 用法 \\
+        命令                                 & 作用     & 用法                                                    \\
         \midrule
-        \tcodeinline{tex}{\cugthesistitle} & 论文标题 & \tcodeinline{tex}{\cugthesistitle{cntitle}{entitle}} \\
-        \tcodeinline{tex}{\cugthesismajor} & 专业 & \tcodeinline{tex}{\cugthesismajor{cnmajor}{enmajor}} \\
-        \tcodeinline{tex}{\cugthesisteacher} & 指导老师 & \tcodeinline{tex}{\cugthesisteacher{cnname}{enname}} \\
-        \tcodeinline{tex}{\cugthesisauthor} &  作者姓名 & \tcodeinline{tex}{\cugthesisauthor{cnname}{enname}} \\
-        \tcodeinline{tex}{\studentid} & 学号 & \tcodeinline{tex}{\studentid{1201711347}} \\
-        \tcodeinline{tex}{\educatingunit} & 培养单位 & \tcodeinline{tex}{\educatingunit{计算机学院}} \\
-        \tcodeinline{tex}{\cugthesisdate} & 时间 & \tcodeinline{tex}{\cugthesisdate{2018}{3}} \\
+        \tcodeinline{tex}{\cugthesistitle}   & 论文标题 & \tcodeinline{tex}{\cugthesistitle{cntitle}{entitle}}    \\
+        \tcodeinline{tex}{\cugthesismajor}   & 专业     & \tcodeinline{tex}{\cugthesismajor{cnmajor}{enmajor}}    \\
+        \tcodeinline{tex}{\cugthesisdegree}  & 学位     & \tcodeinline{tex}{\cugthesisdegree{cndegree}{endegree}} \\
+        \tcodeinline{tex}{\cugthesisteacher} & 指导老师 & \tcodeinline{tex}{\cugthesisteacher{cnname}{enname}}    \\
+        \tcodeinline{tex}{\cugthesisauthor}  & 作者姓名 & \tcodeinline{tex}{\cugthesisauthor{cnname}{enname}}     \\
+        \tcodeinline{tex}{\studentid}        & 学号     & \tcodeinline{tex}{\studentid{1201711347}}               \\
+        \tcodeinline{tex}{\educatingunit}    & 培养单位 & \tcodeinline{tex}{\educatingunit{计算机学院}}           \\
+        \tcodeinline{tex}{\cugthesisdate}    & 时间     & \tcodeinline{tex}{\cugthesisdate{2018}{3}}              \\
         \bottomrule
     \end{tabular}
 \end{ttab}
@@ -405,10 +406,15 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
     \cugthesisauthor{王震宇}{Zhenyu Wang}
     \studentid{1201711347}
     \cugthesismajor{计算机科学与技术}{Computer Science}
+    \cugthesisdegree{}{Test Degree}
     \cugthesisteacher{蔡之华}{Zhihua Cai}
     \educatingunit{计算机学院}
     \cugthesisdate{2018}{3}
 \end{minted}
+
+注意: 命令 \tcodeinline{tex}{\cugthesisdegree} 用于专业和授予学位名字不同的场景, 比如:
+专业是 应用经济学(Applied Economics), 授予的学位是 经济学(Economics).
+其中的参数如果为空, 则取 \tcodeinline{tex}{\cugthesismajor} 中 cn, en 对应的字符串.
 
 顺序无关紧要, 你可以根据你的喜好随意安排.
 
@@ -423,10 +429,10 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
 \begin{ttab}{摘要相关命令}{tab:abstractcmds}
     \begin{tabular}{ll}
         \toprule
-        命令 & 用法 \\
+        命令                            & 用法                                                                      \\
         \midrule
         \tcodeinline{tex}{\cugabstract} & \tcodeinline{tex}{\cugabstract{这里是中文摘要}{Here is english abstract}} \\
-        \tcodeinline{tex}{\cugkeywords} & \tcodeinline{tex}{\cugkeywords{关键字}{Keywords}} \\
+        \tcodeinline{tex}{\cugkeywords} & \tcodeinline{tex}{\cugkeywords{关键字}{Keywords}}                         \\
         \bottomrule
     \end{tabular}
 \end{ttab}
@@ -518,7 +524,7 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
 
 更多关于他们之间的讨论请参考脚注中提到的链接\footnote{\url{https://tex.stackexchange.com/questions/510/are-and-preferable-to-dollar-signs-for-math-mode}}.
 
-如果你想插入行间公式, 请使用 \tilcode{\textbackslash begin\{equation\}~\dots~\textbackslash end\{equation\}}. 
+如果你想插入行间公式, 请使用 \tilcode{\textbackslash begin\{equation\}~\dots~\textbackslash end\{equation\}}.
 尽管你可以使用 \tilcode{\$\$~\dots~\$\$} 或者是 \tilcode{\textbackslash[~\dots~\textbackslash]}, 但是
 在你的论文中肯定是需要给公式编号的, 用 \tilcode{equation} 公式环境容易实现公式编号, 其他两个能不能
 实现编号, 如何实现编号, 我不知道, 我也懒得去研究.
@@ -562,9 +568,9 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
     \end{minted}
 \end{minipage}%
 \begin{minipage}{.4\textwidth}
-        \begin{equation}
-            E = mc^{2}
-        \end{equation}
+    \begin{equation}
+        E = mc^{2}
+    \end{equation}
 \end{minipage}
 }
 
@@ -587,22 +593,22 @@ OK, 如果您没有很多时间来学习, 您可以先看看 The Not So Short In
 本模板引入参考文献的命令是\tcodeinline{tex}{\cugthesisbib{bib_file_name}}.
 会自动添加 ``参考文献'' 章节标题以及目录项, 所以不用你额外再写诸如\tcodeinline{tex}{\chapter{参考文献}}之类的代码.
 
-\emph{bib\_file\_name} 是指你的参考文献数据库. 
+\emph{bib\_file\_name} 是指你的参考文献数据库.
 
 关于参考文献数据库你可以自己手动录入, 也可以使用工具自动生成. 比如说 Zotero, JabRef, Mendeley 这些参考文献
 管理工具. 如图\ref{fig:bibtoolexport}所示是我用 Zotero 导出文献引用数据.
 %\begin{tfig}{Zotero导出参考文献引用数据}{fig:bibtoolexport}
-    %\begin{minipage}{.66\textwidth}
-        %\includegraphics[width=\textwidth]{./imgs/zoteroexport1.png}
-    %\end{minipage}%
-    %\begin{minipage}{.33\textwidth}
-        %\includegraphics[width=\textwidth]{./imgs/zoteroexportbibtex.png}
-    %\end{minipage}
+%\begin{minipage}{.66\textwidth}
+%\includegraphics[width=\textwidth]{./imgs/zoteroexport1.png}
+%\end{minipage}%
+%\begin{minipage}{.33\textwidth}
+%\includegraphics[width=\textwidth]{./imgs/zoteroexportbibtex.png}
+%\end{minipage}
 %\end{tfig}
 
-你也可以在下载参考文献的时候下载其对应的 cite key, 如图\ref{fig:bibcitekey}. 
+你也可以在下载参考文献的时候下载其对应的 cite key, 如图\ref{fig:bibcitekey}.
 %\begin{tfig}{文献 bibtex}{fig:bibcitekey}
-    %\includegraphics[width=.7\textwidth]{./imgs/papercitekey.png}
+%\includegraphics[width=.7\textwidth]{./imgs/papercitekey.png}
 %\end{tfig}
 \chapter{Utilities}
 
@@ -636,7 +642,7 @@ TODO list:
 
 设置目录的格式完成. 关于目录的格式问题: 规范里要求一级节标题和二级节标题左缩进一个汉字和两个汉字的距离,
 但是章标题和节标题的字号大小却不一样, 所以排版出的效果不是很好. 因此, 我擅自将一级节标题的缩进改为 1.2
-个汉字, 二级节标题改为 2.5 个汉字. 
+个汉字, 二级节标题改为 2.5 个汉字.
 
 TODO list:
 \begin{itemize}
@@ -648,7 +654,7 @@ TODO list:
     \item 还没想好\dots
 \end{itemize}
 
-OK, 目前这个版本实现的功能就是这么多, 其他功能下个版本再添加. 
+OK, 目前这个版本实现的功能就是这么多, 其他功能下个版本再添加.
 
 \section{Version 0.2}
 \label{sec:version_0_2}
@@ -660,7 +666,7 @@ OK, 目前这个版本实现的功能就是这么多, 其他功能下个版本�
 
 Developed!
 
-\section{Versino 0.3}
+\section{Version 0.3}
 \label{sec:versino_0_3}
 
 2018-12-18 18:27
@@ -699,26 +705,37 @@ Developed!
 
 代码测试: \tilcode{\$~\dots~\$}
 
-\section{Versino 0.4}
+\section{Version 0.4}
 \label{sec:versino_0_4}
 
 2019-12-12 22:22
 
 添加在线编译器 overleaf 的使用方法.
 
-\section{Versino 0.5}
-\label{sec:versino_0_5}
+\section{Version 0.5}
+\label{sec:version_0_5}
 
 2022-02-14 22:26
 
 1. 奇数页页眉去掉（武汉）
 
 2. 增加figtoc, tabtoc 用于控制图清单和表清单，默认都为 false, 即不输出图表清单目录，
-   如果设置 figtoc，则输出图清单目录，如果设置tabtoc，则输出表清单目录
+如果设置 figtoc，则输出图清单目录，如果设置tabtoc，则输出表清单目录
 
 3. 页眉从第一章开始
 
 4. 图表清单页页眉只提供页码
+
+\section{Version 0.6}
+\label{sec:version_0_6}
+
+2022-06-3 21:53
+
+1. [目录] 中间加空格
+
+2. 增加 \tcodeinline{tex}{\cugthesisdegree} 命令，该命令主要用于某些专业和其所授予的学位名字不同，
+比如: 专业是 应用经济学(Applied Economics), 授予的学位是 经济学(Economics).
+该命令具体用法可参考 example.tex 文件.
 
 \backmatter{}
 \cugthesisacknowledgements
@@ -740,10 +757,10 @@ Developed!
     \label{tab:contact}
     \begin{tabular}{>{\sffamily}l>{\ttfamily\small}l}
         \toprule
-        E-mail & zhenyuwang94@gmail.com \\
-        QQ & 878592748 \\
+        E-mail & zhenyuwang94@gmail.com           \\
+        QQ     & 878592748                        \\
         Github & \url{https://github.com/Timozer} \\
-        \bottomrule 
+        \bottomrule
     \end{tabular}
 \end{table}
 
