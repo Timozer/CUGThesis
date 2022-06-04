@@ -309,7 +309,7 @@
         \ifnum#1=2
             \@extrapages@type{导师承诺书}
             \@extrapages@content{
-                本人郑重承诺：本人所指导的\cug@degree@cn{}学位论文《 \@title{} 》是在本人的指导下，
+                本人郑重承诺：本人所指导的\cug@degree@cn{}学位论文《 \@title 》是在本人的指导下，
                 研究生在中国地质大学（武汉）攻读\cug@degree@cn{}学位期间独立进行研究工作所取得的成果，论文由研究生独立完成。 
 
                 研究生所呈交的\cug@degree@cn{}学位论文没有违反学术道德和学术规范，没有侵权行为， 

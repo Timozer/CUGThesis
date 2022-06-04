@@ -66,6 +66,11 @@
     \end{center}
     \vskip.7ex
 }
+
+\makeatletter
+\def\tagform@#1{\maketag@@@{(\ignorespaces#1\@@italiccorr)}}
+\makeatother
+
 \AtBeginDocument{%
     \let\oldref\ref%
     \renewcommand{\ref}[1]{\hskip0.25em\oldref{#1}\hskip0.25em}
