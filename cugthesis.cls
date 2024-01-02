@@ -250,7 +250,7 @@
                 {\cug@sanhao{学校代码: 10491 \hfill 研究生学号: \cug@studentid }}
             \fi
             \vspace*{2\baselineskip}
-            {\par \cug@yihao \bfseries 中国地质大学\\ \cug@@titlelogo \par}
+            {\par \cug@yihao 中国地质大学\\ \cug@@titlelogo \par}
             \vspace*{2.5\baselineskip}
             {\par \cug@erhao \sffamily \bfseries \@title \par} %
             \vfill
@@ -555,6 +555,7 @@
 }
 
 \renewcommand{\tableofcontents}{%
+    \cleardoublepage
 	\@cfttocstart
 	\par
 	\begingroup
@@ -566,6 +567,7 @@
 	\@starttoc{toc}%
 	\endgroup
 	\@cfttocfinish
+    \cleardoublepage
 }
 
 \renewcommand{\@cftmakeloftitle}{%
@@ -580,7 +582,9 @@
 		\par\nobreak
 		\vskip 2ex
 		\@afterheading}}
+\renewcommand\listfigurename{图清单}
 \renewcommand{\listoffigures}{%
+        \cleardoublepage
 		\@cfttocstart
 		\par
 		\begingroup
@@ -591,7 +595,8 @@
 		\fi
 		\@starttoc{lof}%
 		\endgroup
-		\@cfttocfinish}%
+		\@cfttocfinish
+        \cleardoublepage}%
 \renewcommand{\@cftmakelottitle}{%
 		\addpenalty\@secpenalty
 		\vspace*{2ex}
@@ -604,7 +609,9 @@
 		\par\nobreak
 		\vskip 2ex
 		\@afterheading}}
+\renewcommand\listtablename{表清单}
 \renewcommand{\listoftables}{%
+        \cleardoublepage
 		\@cfttocstart
 		\par
 		\begingroup
@@ -615,7 +622,8 @@
 		\fi
 		\@starttoc{lot}%
 		\endgroup
-		\@cfttocfinish}%
+		\@cfttocfinish
+        \cleardoublepage}%
 
 \renewcommand{\contentsname}{目\quad 录}
 
@@ -626,20 +634,17 @@
     \makeauthorcv
     \makeabstract 
     \tableofcontents 
-    \thispagestyle{empty}
-    \frontmatter 
-        \ifcug@toc@fig@show
-    	    \listoffigures 
-	        \addcontentsline{toc}{chapter}{插 \quad 图}
-            \ifcug@toc@tab@show
-		        \let\cleardoublepage\relax
-		        \let\clearpage\relax
-	        \fi
-        \fi
-	    \ifcug@toc@tab@show
-		    \listoftables
-		    \addcontentsline{toc}{chapter}{表 \quad 格}
-	    \fi
+    \frontmatter
+    \ifcug@toc@fig@show
+        \phantomsection
+        \addcontentsline{toc}{chapter}{\listfigurename}
+        \listoffigures
+    \fi
+    \ifcug@toc@tab@show
+        \phantomsection
+        \addcontentsline{toc}{chapter}{\listtablename}
+        \listoftables
+    \fi
     \clearpage 
     \mainmatter 
 }
