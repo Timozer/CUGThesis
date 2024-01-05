@@ -1521,6 +1521,13 @@ FUNCTION {masterthesis} {                         % void Entry::masterthesis() {
                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                                   %
+FUNCTION {mastersthesis} {                         % void Entry::masterthesis() {
+  "D" set.mark                                    %   set_mark("D");
+  thesis.impl                                     %   thesis_impl();
+}                                                 % }
+                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                                  %
 FUNCTION {bachelorthesis} {                       % void Entry::bachelorthesis() {
   "D" set.mark                                    %   set_mark("D");
   thesis.impl                                     %   thesis_impl();
