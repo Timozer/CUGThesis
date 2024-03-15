@@ -66,7 +66,7 @@
         aftername={\quad},
         format={\centering\sffamily\bfseries\cug@sanhao},
         beforeskip={2ex},
-        afterskip={2ex},
+        afterskip={2.5ex},
         lofskip={0pt},
         lotskip={0pt},
 % https://tex.stackexchange.com/questions/121879/remove-spacing-between-per-chapter-figures-in-lof
@@ -79,8 +79,8 @@
         afterindent=true,
         aftername={\quad},
         format={\centering\sffamily\bfseries\cug@sihao},
-        beforeskip={1ex},
-        afterskip={1ex},
+        beforeskip={1.5ex},
+        afterskip={1.5ex},
     },
     subsection={%
         afterindent=true,
@@ -568,6 +568,9 @@
 	\@cfttocfinish
 }
 
+\renewcommand{\listfigurename}{%
+图清单}
+
 \renewcommand{\@cftmakeloftitle}{%
 		\addpenalty\@secpenalty
 		\vspace*{2ex}
@@ -592,6 +595,7 @@
 		\@starttoc{lof}%
 		\endgroup
 		\@cfttocfinish}%
+\renewcommand{\listtablename}{表清单}
 \renewcommand{\@cftmakelottitle}{%
 		\addpenalty\@secpenalty
 		\vspace*{2ex}
@@ -619,6 +623,14 @@
 
 \renewcommand{\contentsname}{目\quad 录}
 
+\cug@define@term{locftC}
+\newcommand{\setlocftC}[1]{%
+    \locftC{#1}
+}
+\setlocftC{}
+
+% \renewcommand{\numberline}[1]{\hb@xt@\@tempdima{\cug@locftC\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb}
+
 \newcommand{\makefrontpages}{%
     \maketitle
     \emptymatter 
@@ -629,16 +641,18 @@
     \thispagestyle{empty}
     \frontmatter 
         \ifcug@toc@fig@show
+            \setlocftC{\figurename}
     	    \listoffigures 
-	        \addcontentsline{toc}{chapter}{插 \quad 图}
-            \ifcug@toc@tab@show
-		        \let\cleardoublepage\relax
-		        \let\clearpage\relax
-	        \fi
+	        \addcontentsline{toc}{chapter}{\listfigurename}
+            % \ifcug@toc@tab@show
+		    %     \let\cleardoublepage\relax
+		    %     \let\clearpage\relax
+	        % \fi
         \fi
 	    \ifcug@toc@tab@show
+            \setlocftC{\tablename}
 		    \listoftables
-		    \addcontentsline{toc}{chapter}{表 \quad 格}
+		    \addcontentsline{toc}{chapter}{\listtablename}
 	    \fi
     \clearpage 
     \mainmatter 
